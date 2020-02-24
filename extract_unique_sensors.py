@@ -7,25 +7,14 @@ candidate_lines = []
 for line in lines:
     line = line.decode()
     if line.startswith('kat.sensors'):
-        for sensor in line.split():
-            candidate_lines.append(sensor)
+        for candidate_line in line.split():
+            candidate_lines.append(candidate_line)
 
-# extract sensor names
-
+# Loop over candidate_lines and extract sensor names
 sensor_names = []
-for sensor_name in candidate_lines:
-    # typical line : gvygvtvyvtvyvtv
+for sensor in candidate_lines:
+    # Typical output from "sensor" variable:
     # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
-    sensor_name = sensor_name.split('.')[-1].strip("\n")
-    sensor_names.append(sensor_name)
+    sensor = sensor.split('.')[-1].strip("\n")
+    sensor_names.append(sensor)
 print(sorted(sensor_names))
-
-
-
-
-
-
-
-
-
-
