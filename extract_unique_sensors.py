@@ -14,12 +14,11 @@ for line in lines:
 
 sensor_names = []
 for sensor_name in candidate_lines:
-    # typical line : 
+    # typical line : gvygvtvyvtvyvtv
     # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
     sensor_name = sensor_name.split('.')[-1].strip("\n")
     sensor_names.append(sensor_name)
 print(sorted(sensor_names))
-
 
 
 
