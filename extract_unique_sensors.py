@@ -10,12 +10,12 @@ for line in lines:
         for candidate_line in line.split():
             candidate_lines.append(candidate_line)
 
-# Loop over candidate_lines and extract sensor names
+#  Loop over candidate_lines and extract sensor names
 sensor_names = []
 for sensor in candidate_lines:
-    # Typical output from "sensor" variable:
-    # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
-    sensor = sensor.split('.')[-1] # to split a string using a 'dot'character.
-    sensor.strip("\n") # to remove newlines in a string
+#  Typical output from "sensor" variable:
+#  kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
+    sensor = sensor.split('.')[-1]  # to split a string using a 'dot'character.
+    sensor = sensor.strip("\n")  # to remove newlines in a string
     sensor_names.append(sensor)
 print(sorted(sensor_names))
