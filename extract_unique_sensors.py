@@ -15,6 +15,7 @@ sensor_names = []
 for sensor in candidate_lines:
     # Typical output from "sensor" variable:
     # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
-    sensor = sensor.split('.')[-1].strip("\n")
+    sensor = sensor.split('.')[-1]  
+    sensor = sensor.strip("\n")  
     sensor_names.append(sensor)
 print(sorted(sensor_names))
