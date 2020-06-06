@@ -1,5 +1,6 @@
 from urllib.request import urlopen
 from pathlib import Path
+
 file_name = "SensorList.txt"
 url = "http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.txt"                                                                          
 kat_sensor = "kat.sensor"
