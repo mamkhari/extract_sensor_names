@@ -21,7 +21,7 @@ def read_sensors(file_name, url):
     """                 
     try:
         assert isinstance(file_name, str)
-        assert isinstance(url,str)       
+        assert isinstance(url, str)       
     except AssertionError:        
         print('filename or url is not a string.')
         return                                   
