@@ -20,12 +20,8 @@ def read_sensors(file_name, url):
     sensors_data: list
         list of sensors. 
     """                 
-    try:
-        assert isinstance(file_name, str)
-        assert isinstance(url, str)       
-    except AssertionError:        
-        print('filename or url is not a string.')
-        return                                   
+    assert isinstance(file_name, str), "Expected a string."
+    assert isinstance(url, str), "Expected a string."                                          
     sensors_data = []
     if file_name and Path(file_name).exists():
         file_path = Path(file_name)           
@@ -55,14 +51,14 @@ def extract_all_sensors(sensors_data, sensor_name):
         list of sensor names.
     """
     assert isinstance(sensor_name, str), "Expected a string."
-    assert isinstance(sensors_data, list), "Expected a list"
+    assert isinstance(sensors_data, list), "Expected a list."
     candidate_lines = []
     for sensor_data in sensors_data:
         if sensor_data.startswith(sensor_name):
             for candidate_line in sensor_data.split():
                 candidate_lines.append(candidate_line)
     return candidate_lines
-
+    
 # Loop over candidate_lines and extract sensor names
 def splitting_list(sensors_list):
     """Splits the candidate_lines by dot and append that to sensors_list. It also removes the 
