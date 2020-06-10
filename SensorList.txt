@@ -1,0 +1,1173 @@
+Sensor List
+===========
+
+Log Changes:
+------------
+- Oct 2012 s/w deployment: Updated the list of sensors from kat-ops.karoo machine on 2012/10/18.
+- Jun 2012 s/w deployment: Updated the list of sensors from kat-ops.karoo machine on 2012/07/09.
+- Jan 2012 s/w deployment: Updated the list of sensors from kat-ops.karoo machine on 2012/02/27.
+- Sep 2011 s/w deployment: Updated the list of sensors from kat-ops.karoo machine on 2011/10/10.
+
+
+$ ssh kat@kat-ops.karoo.kat.ac.za
+
+kat@kat-ops:~$ ipython
+
+In [1]: import katuilib
+
+In [2]: configure()
+=============================================================================
+Site: karoo
+Configuration source: xmlrpc:http://192.168.193.3:2010
+System resource: systems/karoo_kat.conf
+=============================================================================
+ User and Schedule block not specified - MONITOR ONLY host with no control will be built!!!
+=============================================================================
+
+Found system= systems/karoo_kat.conf  ... building kat ...
+
+Building host (NO SB) None with:
+    host_clients=all
+    controlled_clients=None
+log conf: log/log.karoo.conf
+logger.name: katcorelib
+ *** Controlled objects: []
+
+  Client           IP             Port    Status          Version              Build State                  # Commands   # Sensors   Last Connected
+ ===============   =============  ======  ===========   ==================== ====================           ==========   =========  ====================
+  anc              192.168.193.4   4004    connected    ancillary-proxy-1.0  ancillary-proxy-0.5r15678       8            224       Thu Oct 18 10:52:30
+  ant1             192.168.193.4   4006    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:34
+  ant2             192.168.193.4   4007    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:35
+  ant3             192.168.193.4   4008    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:34
+  ant4             192.168.193.4   4009    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:33
+  ant5             192.168.193.4   4010    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:32
+  ant6             192.168.193.4   4011    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:34
+  ant7             192.168.193.4   4012    connected    antenna-proxy-1.0    antenna-proxy-0.5r15678         7            264       Thu Oct 18 10:52:33
+  dbe7             192.168.193.4   4013    connected    db-kat7-proxy-1.0    db-kat7-proxy-0.5r15678         8            323       Thu Oct 18 10:52:36
+  exe              192.168.193.8   2050    connected    kat-executor-0.1     kat-executor-0.1rc1             6              3       Thu Oct 18 10:52:37
+  katarchive       192.168.193.5   2101    connected    oodt-0.1             oodt-katcp-interface-0.5r15667 11              5       Thu Oct 18 10:52:31
+  kataware         192.168.193.3   2110    connected    kataware-1.0         kataware-0.5r15664             11             83       Thu Oct 18 10:52:38
+  katstore         192.168.193.3   2090    connected    katstore-1.0         katstore-1.0                   10              0       Thu Oct 18 10:52:38
+  launcher         192.168.193.3   2020    connected    katlauncher-1.0      katlauncher-0.2r15674           7             15       Thu Oct 18 10:52:37
+  mon_kat_monctl   192.168.193.3   2080    connected    monitor-1.0          monitor-0.5r15664               8             23       Thu Oct 18 10:52:29
+  mon_kat_ops      192.168.193.8   2080    connected    monitor-1.0          monitor-0.5r15664               8             15       Thu Oct 18 10:52:30
+  mon_kat_proxy    192.168.193.4   2080    connected    monitor-1.0          monitor-0.5r15664               8            476       Thu Oct 18 10:52:31
+  nm_kat_dc1       192.168.193.5   2000    connected    node-manager-2.0     node-manager-0.2r15674          8             44       Thu Oct 18 10:52:37
+  nm_kat_monctl    192.168.193.3   2000    connected    node-manager-2.0     node-manager-0.2r15674          8            108       Thu Oct 18 10:52:35
+  nm_kat_ops       192.168.193.8   2000    connected    node-manager-2.0     node-manager-0.2r15674          8             44       Thu Oct 18 10:52:32
+  nm_kat_proxy     192.168.193.4   2000    connected    node-manager-2.0     node-manager-0.2r15674          8            132       Thu Oct 18 10:52:38
+  nm_kat_timeplot  192.168.193.7   2000    connected    node-manager-2.0     node-manager-0.2r15674          8             12       Thu Oct 18 10:52:36
+  portal           192.168.193.3   2030    connected    katportal-1.0        katportal-0.5r15664             6              1       Thu Oct 18 10:52:36
+  rfe7             192.168.193.4   4005    connected    rfe7-proxy-1.0       rfe7-proxy-0.5r15678            7            721       Thu Oct 18 10:52:31
+  sched            192.168.193.3   2060    connected    katscheduler-1.0     katscheduler-0.5r15675          7             13       Thu Oct 18 10:52:32
+  sys              192.168.193.3   2025    connected    syscontroller-1.0    syscontroller-0.5r15675        10            113       Thu Oct 18 10:52:35
+
+Out[2]: <katuilib.utility.KATHost object at 0x2c990d0>
+
+
+Ancillary Sensors [ kat.anc (Proxy/Device);G ]
+-----------------
+
+In (1 logs; 1 unique) [3]: kat.sensors.anc and then press TAB
+
+kat.sensors.anc_api_version                                      kat.sensors.anc_ganglia_api_version                              kat.sensors.anc_ganglia_kat_monctl_system_os_name
+kat.sensors.anc_asc_address                                      kat.sensors.anc_ganglia_build_state                              kat.sensors.anc_ganglia_kat_monctl_system_os_release
+kat.sensors.anc_asc_air_pressure                                 kat.sensors.anc_ganglia_connected                                kat.sensors.anc_ganglia_kat_ops_core_gexec
+kat.sensors.anc_asc_air_relative_humidity                        kat.sensors.anc_ganglia_ff_dc_ip                                 kat.sensors.anc_ganglia_kat_ops_cpu_cpu_aidle
+kat.sensors.anc_asc_air_temperature                              kat.sensors.anc_ganglia_ff_dc_kat_archive_part_max_used          kat.sensors.anc_ganglia_kat_ops_cpu_cpu_idle
+kat.sensors.anc_asc_api_version                                  kat.sensors.anc_ganglia_ff_dc_kat_disk_part_max_used             kat.sensors.anc_ganglia_kat_ops_cpu_cpu_nice
+kat.sensors.anc_asc_asc_air_temperature                          kat.sensors.anc_ganglia_ff_dc_kat_load_fifteen_per_cpu           kat.sensors.anc_ganglia_kat_ops_cpu_cpu_num
+kat.sensors.anc_asc_asccon_lru                                   kat.sensors.anc_ganglia_ff_dc_kat_mem_part_max_used              kat.sensors.anc_ganglia_kat_ops_cpu_cpu_speed
+kat.sensors.anc_asc_build_state                                  kat.sensors.anc_ganglia_ff_dc_kat_ntp_offset                     kat.sensors.anc_ganglia_kat_ops_cpu_cpu_system
+kat.sensors.anc_asc_chiller_error                                kat.sensors.anc_ganglia_ff_dc_kat_ntp_server                     kat.sensors.anc_ganglia_kat_ops_cpu_cpu_user
+kat.sensors.anc_asc_chiller_water_temperature                    kat.sensors.anc_ganglia_ff_dc_kat_ntp_status                     kat.sensors.anc_ganglia_kat_ops_cpu_cpu_wio
+kat.sensors.anc_asc_connected                                    kat.sensors.anc_ganglia_ff_dc_kat_rev_svn_all                    kat.sensors.anc_ganglia_kat_ops_disk_disk_free
+kat.sensors.anc_asc_fire_ok                                      kat.sensors.anc_ganglia_ff_dc_name                               kat.sensors.anc_ganglia_kat_ops_disk_disk_total
+kat.sensors.anc_asc_intrusion_ok                                 kat.sensors.anc_ganglia_gmond_address                            kat.sensors.anc_ganglia_kat_ops_disk_part_max_used
+kat.sensors.anc_asc_module_analog_input_comms_ok                 kat.sensors.anc_ganglia_gmond_comms_ok                           kat.sensors.anc_ganglia_kat_ops_ip
+kat.sensors.anc_asc_module_digital_input_comms_ok                kat.sensors.anc_ganglia_kat_cam_nfs_ip                           kat.sensors.anc_ganglia_kat_ops_kat_disk_part_max_used
+kat.sensors.anc_asc_state                                        kat.sensors.anc_ganglia_kat_cam_nfs_name                         kat.sensors.anc_ganglia_kat_ops_kat_load_five_per_cpu
+kat.sensors.anc_asc_ups_battery_discharge_time                   kat.sensors.anc_ganglia_kat_dc1_ip                               kat.sensors.anc_ganglia_kat_ops_kat_mem_part_max_used
+kat.sensors.anc_asc_ups_battery_not_discharging                  kat.sensors.anc_ganglia_kat_dc1_kat_disk_part_max_used           kat.sensors.anc_ganglia_kat_ops_kat_ntp_offset
+kat.sensors.anc_asc_ups_battery_not_low                          kat.sensors.anc_ganglia_kat_dc1_kat_load_five_per_cpu            kat.sensors.anc_ganglia_kat_ops_kat_ntp_server
+kat.sensors.anc_asc_ups_ok                                       kat.sensors.anc_ganglia_kat_dc1_kat_mem_part_max_used            kat.sensors.anc_ganglia_kat_ops_kat_ntp_status
+kat.sensors.anc_asc_wind_direction                               kat.sensors.anc_ganglia_kat_dc1_kat_ntp_offset                   kat.sensors.anc_ganglia_kat_ops_kat_rev_svn_all
+kat.sensors.anc_asc_wind_speed                                   kat.sensors.anc_ganglia_kat_dc1_kat_ntp_server                   kat.sensors.anc_ganglia_kat_ops_load_load_fifteen
+kat.sensors.anc_asccombo_address                                 kat.sensors.anc_ganglia_kat_dc1_kat_ntp_status                   kat.sensors.anc_ganglia_kat_ops_load_load_five
+kat.sensors.anc_asccombo_api_version                             kat.sensors.anc_ganglia_kat_dc1_kat_rev_svn_all                  kat.sensors.anc_ganglia_kat_ops_load_load_one
+kat.sensors.anc_asccombo_asccon_lru                              kat.sensors.anc_ganglia_kat_dc1_name                             kat.sensors.anc_ganglia_kat_ops_memory_mem_buffers
+kat.sensors.anc_asccombo_build_state                             kat.sensors.anc_ganglia_kat_monctl_core_gexec                    kat.sensors.anc_ganglia_kat_ops_memory_mem_cached
+kat.sensors.anc_asccombo_connected                               kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_aidle                 kat.sensors.anc_ganglia_kat_ops_memory_mem_free
+kat.sensors.anc_asccombo_floodlights_on                          kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_idle                  kat.sensors.anc_ganglia_kat_ops_memory_mem_shared
+kat.sensors.anc_asccombo_module_combination_input_comms_ok       kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_nice                  kat.sensors.anc_ganglia_kat_ops_memory_mem_total
+kat.sensors.anc_asccombo_state                                   kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_num                   kat.sensors.anc_ganglia_kat_ops_memory_swap_free
+kat.sensors.anc_asccombo_wind_direction_2                        kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_speed                 kat.sensors.anc_ganglia_kat_ops_memory_swap_total
+kat.sensors.anc_asccombo_wind_speed_2                            kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_system                kat.sensors.anc_ganglia_kat_ops_name
+kat.sensors.anc_build_state                                      kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_user                  kat.sensors.anc_ganglia_kat_ops_network_bytes_in
+kat.sensors.anc_cc_address                                       kat.sensors.anc_ganglia_kat_monctl_cpu_cpu_wio                   kat.sensors.anc_ganglia_kat_ops_network_bytes_out
+kat.sensors.anc_cc_api_version                                   kat.sensors.anc_ganglia_kat_monctl_disk_disk_free                kat.sensors.anc_ganglia_kat_ops_network_pkts_in
+kat.sensors.anc_cc_build_state                                   kat.sensors.anc_ganglia_kat_monctl_disk_disk_total               kat.sensors.anc_ganglia_kat_ops_network_pkts_out
+kat.sensors.anc_cc_cc_air_temperature                            kat.sensors.anc_ganglia_kat_monctl_disk_part_max_used            kat.sensors.anc_ganglia_kat_ops_process_proc_run
+kat.sensors.anc_cc_cccon_lru                                     kat.sensors.anc_ganglia_kat_monctl_ip                            kat.sensors.anc_ganglia_kat_ops_process_proc_total
+kat.sensors.anc_cc_chiller_error                                 kat.sensors.anc_ganglia_kat_monctl_kat_disk_part_max_used        kat.sensors.anc_ganglia_kat_ops_system_boottime
+kat.sensors.anc_cc_chiller_water_temperature                     kat.sensors.anc_ganglia_kat_monctl_kat_katstore_files_status     kat.sensors.anc_ganglia_kat_ops_system_machine_type
+kat.sensors.anc_cc_connected                                     kat.sensors.anc_ganglia_kat_monctl_kat_load_five_per_cpu         kat.sensors.anc_ganglia_kat_ops_system_os_name
+kat.sensors.anc_cc_db_3phase_monitoring_relay                    kat.sensors.anc_ganglia_kat_monctl_kat_mem_part_max_used         kat.sensors.anc_ganglia_kat_ops_system_os_release
+kat.sensors.anc_cc_db_css_cabinet_supply_on                      kat.sensors.anc_ganglia_kat_monctl_kat_nfs_disk_free             kat.sensors.anc_ganglia_kat_proxy_disk_part_max_used
+kat.sensors.anc_cc_db_dbe1_cabinet_supply_on                     kat.sensors.anc_ganglia_kat_monctl_kat_ntp_offset                kat.sensors.anc_ganglia_kat_proxy_ip
+kat.sensors.anc_cc_db_dbe2_cabinet_supply_on                     kat.sensors.anc_ganglia_kat_monctl_kat_ntp_server                kat.sensors.anc_ganglia_kat_proxy_kat_disk_part_max_used
+kat.sensors.anc_cc_db_mains_supply_on                            kat.sensors.anc_ganglia_kat_monctl_kat_ntp_status                kat.sensors.anc_ganglia_kat_proxy_kat_load_five_per_cpu
+kat.sensors.anc_cc_fire_ok                                       kat.sensors.anc_ganglia_kat_monctl_kat_rev_svn_all               kat.sensors.anc_ganglia_kat_proxy_kat_mem_part_max_used
+kat.sensors.anc_cc_intrusion_ok                                  kat.sensors.anc_ganglia_kat_monctl_kat_rev_varkatconfig          kat.sensors.anc_ganglia_kat_proxy_kat_ntp_offset
+kat.sensors.anc_cc_module_analog_input_comms_ok                  kat.sensors.anc_ganglia_kat_monctl_kat_tle_current               kat.sensors.anc_ganglia_kat_proxy_kat_ntp_server
+kat.sensors.anc_cc_module_digital_input_comms_ok                 kat.sensors.anc_ganglia_kat_monctl_kat_tle_uptodate              kat.sensors.anc_ganglia_kat_proxy_kat_ntp_status
+kat.sensors.anc_cc_state                                         kat.sensors.anc_ganglia_kat_monctl_kat_ut1_current               kat.sensors.anc_ganglia_kat_proxy_kat_rev_svn_all
+kat.sensors.anc_cc_tcu_water_level_low                           kat.sensors.anc_ganglia_kat_monctl_kat_ut1_uptodate              kat.sensors.anc_ganglia_kat_proxy_name
+kat.sensors.anc_cc_tcu_water_level_not_warning                   kat.sensors.anc_ganglia_kat_monctl_kat_varkatconfig_uncommitted  kat.sensors.anc_ganglia_kat_timeplot_ip
+kat.sensors.anc_cc_tcu_water_temperature                         kat.sensors.anc_ganglia_kat_monctl_kat_varkatconfig_uptodate     kat.sensors.anc_ganglia_kat_timeplot_kat_disk_part_max_used
+kat.sensors.anc_cc_ups_battery_not_discharging                   kat.sensors.anc_ganglia_kat_monctl_kat_workconfig_uncommitted    kat.sensors.anc_ganglia_kat_timeplot_kat_load_five_per_cpu
+kat.sensors.anc_cc_ups_battery_not_low                           kat.sensors.anc_ganglia_kat_monctl_load_load_fifteen             kat.sensors.anc_ganglia_kat_timeplot_kat_mem_part_max_used
+kat.sensors.anc_cc_ups_fault                                     kat.sensors.anc_ganglia_kat_monctl_load_load_five                kat.sensors.anc_ganglia_kat_timeplot_kat_ntp_offset
+kat.sensors.anc_cmc_address                                      kat.sensors.anc_ganglia_kat_monctl_load_load_one                 kat.sensors.anc_ganglia_kat_timeplot_kat_ntp_server
+kat.sensors.anc_cmc_api_version                                  kat.sensors.anc_ganglia_kat_monctl_memory_mem_buffers            kat.sensors.anc_ganglia_kat_timeplot_kat_ntp_status
+kat.sensors.anc_cmc_build_state                                  kat.sensors.anc_ganglia_kat_monctl_memory_mem_cached             kat.sensors.anc_ganglia_kat_timeplot_kat_rev_svn_all
+kat.sensors.anc_cmc_chiller_water_temperature                    kat.sensors.anc_ganglia_kat_monctl_memory_mem_free               kat.sensors.anc_ganglia_kat_timeplot_name
+kat.sensors.anc_cmc_cmc_air_temperature                          kat.sensors.anc_ganglia_kat_monctl_memory_mem_shared             kat.sensors.anc_ganglia_state
+kat.sensors.anc_cmc_cmccon_lru                                   kat.sensors.anc_ganglia_kat_monctl_memory_mem_total              kat.sensors.anc_heartbeat
+kat.sensors.anc_cmc_connected                                    kat.sensors.anc_ganglia_kat_monctl_memory_swap_free              kat.sensors.anc_name
+kat.sensors.anc_cmc_db_3phase_monitoring_relay                   kat.sensors.anc_ganglia_kat_monctl_memory_swap_total             kat.sensors.anc_sensors_ok
+kat.sensors.anc_cmc_db_mains_supply_on                           kat.sensors.anc_ganglia_kat_monctl_name                          kat.sensors.anc_tfr_address
+kat.sensors.anc_cmc_db_ups_supply_on                             kat.sensors.anc_ganglia_kat_monctl_network_bytes_in              kat.sensors.anc_tfr_api_version
+kat.sensors.anc_cmc_fire_ok                                      kat.sensors.anc_ganglia_kat_monctl_network_bytes_out             kat.sensors.anc_tfr_build_state
+kat.sensors.anc_cmc_intrusion_ok                                 kat.sensors.anc_ganglia_kat_monctl_network_pkts_in               kat.sensors.anc_tfr_clock_offset
+kat.sensors.anc_cmc_module_analog_input_comms_ok                 kat.sensors.anc_ganglia_kat_monctl_network_pkts_out              kat.sensors.anc_tfr_connected
+kat.sensors.anc_cmc_module_digital_input_comms_ok                kat.sensors.anc_ganglia_kat_monctl_process_proc_run              kat.sensors.anc_tfr_gps_up
+kat.sensors.anc_cmc_state                                        kat.sensors.anc_ganglia_kat_monctl_process_proc_total            kat.sensors.anc_tfr_state
+kat.sensors.anc_comms_ok                                         kat.sensors.anc_ganglia_kat_monctl_system_boottime               kat.sensors.anc_type
+kat.sensors.anc_ganglia_address                                  kat.sensors.anc_ganglia_kat_monctl_system_machine_type
+
+
+Dbe7 (KAT7 correlator) [  kat.dbe7 (Proxy/Device);G ]
+----------------------
+In (1 logs; 1 unique) [7]: kat.sensors.dbe7
+
+kat.sensors.dbe7_api_version                        kat.sensors.dbe7_dbe_ant7v_adc_overrange            kat.sensors.dbe7_dbe_roach030207_4x_adc_terminated
+kat.sensors.dbe7_archiver_address                   kat.sensors.dbe7_dbe_ant7v_adc_power                kat.sensors.dbe7_dbe_roach030207_4x_fft_overrange
+kat.sensors.dbe7_archiver_api_version               kat.sensors.dbe7_dbe_ant7v_adc_raw                  kat.sensors.dbe7_dbe_roach030207_4x_sram_available
+kat.sensors.dbe7_archiver_build_state               kat.sensors.dbe7_dbe_ant7v_adc_terminated           kat.sensors.dbe7_dbe_roach030207_4x_xaui_link
+kat.sensors.dbe7_archiver_connected                 kat.sensors.dbe7_dbe_ant7v_fft_overrange            kat.sensors.dbe7_dbe_roach030207_4y_adc_overrange
+kat.sensors.dbe7_archiver_cr_is_alive               kat.sensors.dbe7_dbe_ant7v_sram_available           kat.sensors.dbe7_dbe_roach030207_4y_adc_power
+kat.sensors.dbe7_archiver_filemgr_url               kat.sensors.dbe7_dbe_ant7v_xaui_link                kat.sensors.dbe7_dbe_roach030207_4y_adc_raw
+kat.sensors.dbe7_archiver_fm_is_alive               kat.sensors.dbe7_dbe_api_version                    kat.sensors.dbe7_dbe_roach030207_4y_adc_terminated
+kat.sensors.dbe7_archiver_product_server_url        kat.sensors.dbe7_dbe_bandwidth                      kat.sensors.dbe7_dbe_roach030207_4y_fft_overrange
+kat.sensors.dbe7_archiver_state                     kat.sensors.dbe7_dbe_build_state                    kat.sensors.dbe7_dbe_roach030207_4y_sram_available
+kat.sensors.dbe7_archiver_workflowmgr_url           kat.sensors.dbe7_dbe_centerfrequency                kat.sensors.dbe7_dbe_roach030207_4y_xaui_link
+kat.sensors.dbe7_array_config                       kat.sensors.dbe7_dbe_channels                       kat.sensors.dbe7_dbe_roach030207_fpga_synchronised
+kat.sensors.dbe7_auto_delay                         kat.sensors.dbe7_dbe_connected                      kat.sensors.dbe7_dbe_roach030207_lru_available
+kat.sensors.dbe7_build_state                        kat.sensors.dbe7_dbe_corr_lru_available             kat.sensors.dbe7_dbe_roach030238_lru_available
+kat.sensors.dbe7_capturing                          kat.sensors.dbe7_dbe_id                             kat.sensors.dbe7_dbe_roach030280_6x_adc_overrange
+kat.sensors.dbe7_comms_ok                           kat.sensors.dbe7_dbe_mode                           kat.sensors.dbe7_dbe_roach030280_6x_adc_power
+kat.sensors.dbe7_dbe_address                        kat.sensors.dbe7_dbe_ntp_synchronised               kat.sensors.dbe7_dbe_roach030280_6x_adc_raw
+kat.sensors.dbe7_dbe_ant1h_adc_overrange            kat.sensors.dbe7_dbe_roach030160_lru_available      kat.sensors.dbe7_dbe_roach030280_6x_adc_terminated
+kat.sensors.dbe7_dbe_ant1h_adc_power                kat.sensors.dbe7_dbe_roach030181_lru_available      kat.sensors.dbe7_dbe_roach030280_6x_fft_overrange
+kat.sensors.dbe7_dbe_ant1h_adc_raw                  kat.sensors.dbe7_dbe_roach030184_5x_adc_overrange   kat.sensors.dbe7_dbe_roach030280_6x_sram_available
+kat.sensors.dbe7_dbe_ant1h_adc_terminated           kat.sensors.dbe7_dbe_roach030184_5x_adc_power       kat.sensors.dbe7_dbe_roach030280_6x_xaui_link
+kat.sensors.dbe7_dbe_ant1h_fft_overrange            kat.sensors.dbe7_dbe_roach030184_5x_adc_raw         kat.sensors.dbe7_dbe_roach030280_6y_adc_overrange
+kat.sensors.dbe7_dbe_ant1h_sram_available           kat.sensors.dbe7_dbe_roach030184_5x_adc_terminated  kat.sensors.dbe7_dbe_roach030280_6y_adc_power
+kat.sensors.dbe7_dbe_ant1h_xaui_link                kat.sensors.dbe7_dbe_roach030184_5x_fft_overrange   kat.sensors.dbe7_dbe_roach030280_6y_adc_raw
+kat.sensors.dbe7_dbe_ant1v_adc_overrange            kat.sensors.dbe7_dbe_roach030184_5x_sram_available  kat.sensors.dbe7_dbe_roach030280_6y_adc_terminated
+kat.sensors.dbe7_dbe_ant1v_adc_power                kat.sensors.dbe7_dbe_roach030184_5x_xaui_link       kat.sensors.dbe7_dbe_roach030280_6y_fft_overrange
+kat.sensors.dbe7_dbe_ant1v_adc_raw                  kat.sensors.dbe7_dbe_roach030184_5y_adc_overrange   kat.sensors.dbe7_dbe_roach030280_6y_sram_available
+kat.sensors.dbe7_dbe_ant1v_adc_terminated           kat.sensors.dbe7_dbe_roach030184_5y_adc_power       kat.sensors.dbe7_dbe_roach030280_6y_xaui_link
+kat.sensors.dbe7_dbe_ant1v_fft_overrange            kat.sensors.dbe7_dbe_roach030184_5y_adc_raw         kat.sensors.dbe7_dbe_roach030280_fpga_synchronised
+kat.sensors.dbe7_dbe_ant1v_sram_available           kat.sensors.dbe7_dbe_roach030184_5y_adc_terminated  kat.sensors.dbe7_dbe_roach030280_lru_available
+kat.sensors.dbe7_dbe_ant1v_xaui_link                kat.sensors.dbe7_dbe_roach030184_5y_fft_overrange   kat.sensors.dbe7_dbe_roach030281_lru_available
+kat.sensors.dbe7_dbe_ant2h_adc_overrange            kat.sensors.dbe7_dbe_roach030184_5y_sram_available  kat.sensors.dbe7_dbe_state
+kat.sensors.dbe7_dbe_ant2h_adc_power                kat.sensors.dbe7_dbe_roach030184_5y_xaui_link       kat.sensors.dbe7_freq_rfe7_center
+kat.sensors.dbe7_dbe_ant2h_adc_raw                  kat.sensors.dbe7_dbe_roach030184_fpga_synchronised  kat.sensors.dbe7_heartbeat
+kat.sensors.dbe7_dbe_ant2h_adc_terminated           kat.sensors.dbe7_dbe_roach030184_lru_available      kat.sensors.dbe7_input_mappings_1x
+kat.sensors.dbe7_dbe_ant2h_fft_overrange            kat.sensors.dbe7_dbe_roach030186_1x_adc_overrange   kat.sensors.dbe7_input_mappings_1y
+kat.sensors.dbe7_dbe_ant2h_sram_available           kat.sensors.dbe7_dbe_roach030186_1x_adc_power       kat.sensors.dbe7_input_mappings_2x
+kat.sensors.dbe7_dbe_ant2h_xaui_link                kat.sensors.dbe7_dbe_roach030186_1x_adc_raw         kat.sensors.dbe7_input_mappings_2y
+kat.sensors.dbe7_dbe_ant2v_adc_overrange            kat.sensors.dbe7_dbe_roach030186_1x_adc_terminated  kat.sensors.dbe7_input_mappings_3x
+kat.sensors.dbe7_dbe_ant2v_adc_power                kat.sensors.dbe7_dbe_roach030186_1x_fft_overrange   kat.sensors.dbe7_input_mappings_3y
+kat.sensors.dbe7_dbe_ant2v_adc_raw                  kat.sensors.dbe7_dbe_roach030186_1x_sram_available  kat.sensors.dbe7_input_mappings_4x
+kat.sensors.dbe7_dbe_ant2v_adc_terminated           kat.sensors.dbe7_dbe_roach030186_1x_xaui_link       kat.sensors.dbe7_input_mappings_4y
+kat.sensors.dbe7_dbe_ant2v_fft_overrange            kat.sensors.dbe7_dbe_roach030186_1y_adc_overrange   kat.sensors.dbe7_input_mappings_5x
+kat.sensors.dbe7_dbe_ant2v_sram_available           kat.sensors.dbe7_dbe_roach030186_1y_adc_power       kat.sensors.dbe7_input_mappings_5y
+kat.sensors.dbe7_dbe_ant2v_xaui_link                kat.sensors.dbe7_dbe_roach030186_1y_adc_raw         kat.sensors.dbe7_input_mappings_6x
+kat.sensors.dbe7_dbe_ant3h_adc_overrange            kat.sensors.dbe7_dbe_roach030186_1y_adc_terminated  kat.sensors.dbe7_input_mappings_6y
+kat.sensors.dbe7_dbe_ant3h_adc_power                kat.sensors.dbe7_dbe_roach030186_1y_fft_overrange   kat.sensors.dbe7_input_mappings_7x
+kat.sensors.dbe7_dbe_ant3h_adc_raw                  kat.sensors.dbe7_dbe_roach030186_1y_sram_available  kat.sensors.dbe7_input_mappings_7y
+kat.sensors.dbe7_dbe_ant3h_adc_terminated           kat.sensors.dbe7_dbe_roach030186_1y_xaui_link       kat.sensors.dbe7_input_rfdelays_1x
+kat.sensors.dbe7_dbe_ant3h_fft_overrange            kat.sensors.dbe7_dbe_roach030186_fpga_synchronised  kat.sensors.dbe7_input_rfdelays_1y
+kat.sensors.dbe7_dbe_ant3h_sram_available           kat.sensors.dbe7_dbe_roach030186_lru_available      kat.sensors.dbe7_input_rfdelays_2x
+kat.sensors.dbe7_dbe_ant3h_xaui_link                kat.sensors.dbe7_dbe_roach030197_lru_available      kat.sensors.dbe7_input_rfdelays_2y
+kat.sensors.dbe7_dbe_ant3v_adc_overrange            kat.sensors.dbe7_dbe_roach030198_2x_adc_overrange   kat.sensors.dbe7_input_rfdelays_3x
+kat.sensors.dbe7_dbe_ant3v_adc_power                kat.sensors.dbe7_dbe_roach030198_2x_adc_power       kat.sensors.dbe7_input_rfdelays_3y
+kat.sensors.dbe7_dbe_ant3v_adc_raw                  kat.sensors.dbe7_dbe_roach030198_2x_adc_raw         kat.sensors.dbe7_input_rfdelays_4x
+kat.sensors.dbe7_dbe_ant3v_adc_terminated           kat.sensors.dbe7_dbe_roach030198_2x_adc_terminated  kat.sensors.dbe7_input_rfdelays_4y
+kat.sensors.dbe7_dbe_ant3v_fft_overrange            kat.sensors.dbe7_dbe_roach030198_2x_fft_overrange   kat.sensors.dbe7_input_rfdelays_5x
+kat.sensors.dbe7_dbe_ant3v_sram_available           kat.sensors.dbe7_dbe_roach030198_2x_sram_available  kat.sensors.dbe7_input_rfdelays_5y
+kat.sensors.dbe7_dbe_ant3v_xaui_link                kat.sensors.dbe7_dbe_roach030198_2x_xaui_link       kat.sensors.dbe7_input_rfdelays_6x
+kat.sensors.dbe7_dbe_ant4h_adc_overrange            kat.sensors.dbe7_dbe_roach030198_2y_adc_overrange   kat.sensors.dbe7_input_rfdelays_6y
+kat.sensors.dbe7_dbe_ant4h_adc_power                kat.sensors.dbe7_dbe_roach030198_2y_adc_power       kat.sensors.dbe7_input_rfdelays_7x
+kat.sensors.dbe7_dbe_ant4h_adc_raw                  kat.sensors.dbe7_dbe_roach030198_2y_adc_raw         kat.sensors.dbe7_input_rfdelays_7y
+kat.sensors.dbe7_dbe_ant4h_adc_terminated           kat.sensors.dbe7_dbe_roach030198_2y_adc_terminated  kat.sensors.dbe7_k7w_address
+kat.sensors.dbe7_dbe_ant4h_fft_overrange            kat.sensors.dbe7_dbe_roach030198_2y_fft_overrange   kat.sensors.dbe7_k7w_api_version
+kat.sensors.dbe7_dbe_ant4h_sram_available           kat.sensors.dbe7_dbe_roach030198_2y_sram_available  kat.sensors.dbe7_k7w_build_state
+kat.sensors.dbe7_dbe_ant4h_xaui_link                kat.sensors.dbe7_dbe_roach030198_2y_xaui_link       kat.sensors.dbe7_k7w_capture_active
+kat.sensors.dbe7_dbe_ant4v_adc_overrange            kat.sensors.dbe7_dbe_roach030198_fpga_synchronised  kat.sensors.dbe7_k7w_connected
+kat.sensors.dbe7_dbe_ant4v_adc_power                kat.sensors.dbe7_dbe_roach030198_lru_available      kat.sensors.dbe7_k7w_label
+kat.sensors.dbe7_dbe_ant4v_adc_raw                  kat.sensors.dbe7_dbe_roach030199_lru_available      kat.sensors.dbe7_k7w_last_dump_timestamp
+kat.sensors.dbe7_dbe_ant4v_adc_terminated           kat.sensors.dbe7_dbe_roach030201_fpga_synchronised  kat.sensors.dbe7_k7w_packets_captured
+kat.sensors.dbe7_dbe_ant4v_fft_overrange            kat.sensors.dbe7_dbe_roach030201_lru_available      kat.sensors.dbe7_k7w_script_ants
+kat.sensors.dbe7_dbe_ant4v_sram_available           kat.sensors.dbe7_dbe_roach030202_lru_available      kat.sensors.dbe7_k7w_script_arguments
+kat.sensors.dbe7_dbe_ant4v_xaui_link                kat.sensors.dbe7_dbe_roach030204_3x_adc_overrange   kat.sensors.dbe7_k7w_script_description
+kat.sensors.dbe7_dbe_ant5h_adc_overrange            kat.sensors.dbe7_dbe_roach030204_3x_adc_power       kat.sensors.dbe7_k7w_script_endtime
+kat.sensors.dbe7_dbe_ant5h_adc_power                kat.sensors.dbe7_dbe_roach030204_3x_adc_raw         kat.sensors.dbe7_k7w_script_experiment_id
+kat.sensors.dbe7_dbe_ant5h_adc_raw                  kat.sensors.dbe7_dbe_roach030204_3x_adc_terminated  kat.sensors.dbe7_k7w_script_log
+kat.sensors.dbe7_dbe_ant5h_adc_terminated           kat.sensors.dbe7_dbe_roach030204_3x_fft_overrange   kat.sensors.dbe7_k7w_script_name
+kat.sensors.dbe7_dbe_ant5h_fft_overrange            kat.sensors.dbe7_dbe_roach030204_3x_sram_available  kat.sensors.dbe7_k7w_script_nd_params
+kat.sensors.dbe7_dbe_ant5h_sram_available           kat.sensors.dbe7_dbe_roach030204_3x_xaui_link       kat.sensors.dbe7_k7w_script_observer
+kat.sensors.dbe7_dbe_ant5h_xaui_link                kat.sensors.dbe7_dbe_roach030204_3y_adc_overrange   kat.sensors.dbe7_k7w_script_rf_params
+kat.sensors.dbe7_dbe_ant5v_adc_overrange            kat.sensors.dbe7_dbe_roach030204_3y_adc_power       kat.sensors.dbe7_k7w_script_starttime
+kat.sensors.dbe7_dbe_ant5v_adc_power                kat.sensors.dbe7_dbe_roach030204_3y_adc_raw         kat.sensors.dbe7_k7w_script_status
+kat.sensors.dbe7_dbe_ant5v_adc_raw                  kat.sensors.dbe7_dbe_roach030204_3y_adc_terminated  kat.sensors.dbe7_k7w_spead_accum_per_dump
+kat.sensors.dbe7_dbe_ant5v_adc_terminated           kat.sensors.dbe7_dbe_roach030204_3y_fft_overrange   kat.sensors.dbe7_k7w_spead_center_freq
+kat.sensors.dbe7_dbe_ant5v_fft_overrange            kat.sensors.dbe7_dbe_roach030204_3y_sram_available  kat.sensors.dbe7_k7w_spead_dump_period
+kat.sensors.dbe7_dbe_ant5v_sram_available           kat.sensors.dbe7_dbe_roach030204_3y_xaui_link       kat.sensors.dbe7_k7w_spead_num_bls
+kat.sensors.dbe7_dbe_ant5v_xaui_link                kat.sensors.dbe7_dbe_roach030204_fpga_synchronised  kat.sensors.dbe7_k7w_spead_num_chans
+kat.sensors.dbe7_dbe_ant6h_adc_overrange            kat.sensors.dbe7_dbe_roach030204_lru_available      kat.sensors.dbe7_k7w_state
+kat.sensors.dbe7_dbe_ant6h_adc_power                kat.sensors.dbe7_dbe_roach030205_7x_adc_overrange   kat.sensors.dbe7_k7w_status
+kat.sensors.dbe7_dbe_ant6h_adc_raw                  kat.sensors.dbe7_dbe_roach030205_7x_adc_power       kat.sensors.dbe7_last_config_refresh_time
+kat.sensors.dbe7_dbe_ant6h_adc_terminated           kat.sensors.dbe7_dbe_roach030205_7x_adc_raw         kat.sensors.dbe7_mode_status
+kat.sensors.dbe7_dbe_ant6h_fft_overrange            kat.sensors.dbe7_dbe_roach030205_7x_adc_terminated  kat.sensors.dbe7_name
+kat.sensors.dbe7_dbe_ant6h_sram_available           kat.sensors.dbe7_dbe_roach030205_7x_fft_overrange   kat.sensors.dbe7_offset_fixed_projection
+kat.sensors.dbe7_dbe_ant6h_xaui_link                kat.sensors.dbe7_dbe_roach030205_7x_sram_available  kat.sensors.dbe7_offset_fixed_x
+kat.sensors.dbe7_dbe_ant6v_adc_overrange            kat.sensors.dbe7_dbe_roach030205_7x_xaui_link       kat.sensors.dbe7_offset_fixed_y
+kat.sensors.dbe7_dbe_ant6v_adc_power                kat.sensors.dbe7_dbe_roach030205_7y_adc_overrange   kat.sensors.dbe7_offset_time
+kat.sensors.dbe7_dbe_ant6v_adc_raw                  kat.sensors.dbe7_dbe_roach030205_7y_adc_power       kat.sensors.dbe7_offset_ut1
+kat.sensors.dbe7_dbe_ant6v_adc_terminated           kat.sensors.dbe7_dbe_roach030205_7y_adc_raw         kat.sensors.dbe7_pos_request_base_azim
+kat.sensors.dbe7_dbe_ant6v_fft_overrange            kat.sensors.dbe7_dbe_roach030205_7y_adc_terminated  kat.sensors.dbe7_pos_request_base_dec
+kat.sensors.dbe7_dbe_ant6v_sram_available           kat.sensors.dbe7_dbe_roach030205_7y_fft_overrange   kat.sensors.dbe7_pos_request_base_elev
+kat.sensors.dbe7_dbe_ant6v_xaui_link                kat.sensors.dbe7_dbe_roach030205_7y_sram_available  kat.sensors.dbe7_pos_request_base_ra
+kat.sensors.dbe7_dbe_ant7h_adc_overrange            kat.sensors.dbe7_dbe_roach030205_7y_xaui_link       kat.sensors.dbe7_pos_request_offset_azim
+kat.sensors.dbe7_dbe_ant7h_adc_power                kat.sensors.dbe7_dbe_roach030205_fpga_synchronised  kat.sensors.dbe7_pos_request_offset_elev
+kat.sensors.dbe7_dbe_ant7h_adc_raw                  kat.sensors.dbe7_dbe_roach030205_lru_available      kat.sensors.dbe7_sensors_ok
+kat.sensors.dbe7_dbe_ant7h_adc_terminated           kat.sensors.dbe7_dbe_roach030206_lru_available      kat.sensors.dbe7_target
+kat.sensors.dbe7_dbe_ant7h_fft_overrange            kat.sensors.dbe7_dbe_roach030207_4x_adc_overrange   kat.sensors.dbe7_tau_max
+kat.sensors.dbe7_dbe_ant7h_sram_available           kat.sensors.dbe7_dbe_roach030207_4x_adc_power       kat.sensors.dbe7_type
+kat.sensors.dbe7_dbe_ant7h_xaui_link                kat.sensors.dbe7_dbe_roach030207_4x_adc_raw         
+
+
+Antenna Sensors [ kat.ant1-7 (Proxy/Device);G ]
+---------------
+Combines both antenna and pedestal sensors.
+
+In (1 logs; 1 unique) [7]: kat.sensors.ant1 (press TAB)
+
+Use exit() or quit() to terminate this shell NOT Ctrl-D !
+
+In [2]: config
+configure      configure_cam  configure_obs  configure_sim  
+
+In [2]: configure()
+**************************************************************************************
+Site: karoo
+Configuration source: xmlrpc:http://192.168.193.3:2010
+System resource: systems/karoo_kat.conf
+**************************************************************************************
+ 
+Preferred to run sessions for site karoo on kat-ops.karoo or kat-mon-xxx.karoo !!!
+
+**************************************************************************************
+
+Do you want to stop configuration on kat-monctl (y/n): n
+=============================================================================
+Site: karoo
+Configuration source: xmlrpc:http://192.168.193.3:2010
+System resource: systems/karoo_kat.conf
+=============================================================================
+ User and Schedule block not specified - MONITOR ONLY host with no control will be built!!! 
+=============================================================================
+
+Found system= systems/karoo_kat.conf  ... building kat ...
+
+Building host (NO SB) None with: 
+    host_clients=all 
+    controlled_clients=None
+log conf: log/log.karoo.conf
+logger.name: katcorelib
+ *** Controlled objects: [] 
+     Client            IP        Port       Status           Version            Build State       # Commands   # Sensors      Last Connected   
+=============== =============== ====== =============== ==================== ==================== ============ ============ ====================
+ anc              192.168.193.4   4004    connected        ancillary-proxy-1.0  ancillary-proxy-0.5r15678 8            197          Tue Feb 26 14:29:17 
+ ant1             192.168.193.4   4006    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            264          Tue Feb 26 14:29:21 
+ ant2             192.168.193.4   4007    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            264          Tue Feb 26 14:29:22 
+ ant3             192.168.193.4   4008    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            264          Tue Feb 26 14:29:22 
+ ant4             192.168.193.4   4009    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            264          Tue Feb 26 14:29:20 
+ ant5             192.168.193.4   4010    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            264          Tue Feb 26 14:29:20 
+ ant6             192.168.193.4   4011    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            264          Tue Feb 26 14:29:21 
+ ant7             192.168.193.4   4012    connected        antenna-proxy-1.0    antenna-proxy-0.5r15678 7            184          Tue Feb 26 14:29:21 
+ dbe7             192.168.193.4   4013    connected        db-kat7-proxy-1.0    db-kat7-proxy-0.5r15678 8            323          Tue Feb 26 14:29:24 
+ exe              192.168.193.8   2050    connected        kat-executor-0.1     kat-executor-0.1rc1  6            3            Tue Feb 26 14:29:24 
+ katarchive       192.168.193.5   2101    connected        oodt-0.1             oodt-katcp-interface-0.5r15667 11           5            Tue Feb 26 14:29:18 
+ kataware         192.168.193.3   2110    connected        kataware-1.0         kataware-0.5r15761   11           84           Tue Feb 26 14:29:26 
+ katstore         192.168.193.3   2090    connected        katstore-1.0         katstore-1.0         10           0            Tue Feb 26 14:29:25 
+ launcher         192.168.193.3   2020    connected        katlauncher-1.0      katlauncher-0.2r15674 7            15           Tue Feb 26 14:29:25 
+ mon_kat_monctl   192.168.193.3   2080    connected        monitor-1.0          monitor-0.5r15761    8            23           Tue Feb 26 14:29:17 
+ mon_kat_ops      192.168.193.8   2080    connected        monitor-1.0          monitor-0.5r15750    8            15           Tue Feb 26 14:29:18 
+ mon_kat_proxy    192.168.193.4   2080    connected        monitor-1.0          monitor-0.5r15750    8            476          Tue Feb 26 14:29:18 
+ nm_kat_dc1       192.168.193.5   2000    connected        node-manager-2.0     node-manager-0.2r15674 8            44           Tue Feb 26 14:29:25 
+ nm_kat_monctl    192.168.193.3   2000    connected        node-manager-2.0     node-manager-0.2r15674 8            108          Tue Feb 26 14:29:23 
+ nm_kat_ops       192.168.193.8   2000    connected        node-manager-2.0     node-manager-0.2r15674 8            44           Tue Feb 26 14:29:19 
+ nm_kat_proxy     192.168.193.4   2000    connected        node-manager-2.0     node-manager-0.2r15674 8            132          Tue Feb 26 14:29:26 
+ nm_kat_timeplot  192.168.193.7   2000    connected        node-manager-2.0     node-manager-0.2r15674 8            12           Tue Feb 26 14:29:24 
+ portal           192.168.193.3   2030    connected        katportal-1.0        katportal-0.5r15761  6            1            Tue Feb 26 14:29:23 
+ rfe7             192.168.193.4   4005    connected        rfe7-proxy-1.0       rfe7-proxy-0.5r15678 7            721          Tue Feb 26 14:29:19 
+ sched            192.168.193.3   2060    connected        katscheduler-1.0     katscheduler-0.5r15988 7            13           Tue Feb 26 14:29:19 
+ sys              192.168.193.3   2025    connected        syscontroller-1.0    syscontroller-0.5r15988 10           113          Tue Feb 26 14:29:22 
+Out[2]: <katuilib.utility.KATHost object at 0x14419d0>
+
+In (26 logs; 26 unique) [3]: kat.sensors.ant1
+Display all 264 possibilities? (y or n)
+kat.sensors.ant1_activity                              kat.sensors.ant1_bms_watchdog_tardiness
+kat.sensors.ant1_antenna_acs_380v_supply               kat.sensors.ant1_build_state
+kat.sensors.ant1_antenna_acs_380v_trip_azim            kat.sensors.ant1_comms_ok
+kat.sensors.ant1_antenna_acs_380v_trip_elev            kat.sensors.ant1_cryo_15v_error
+kat.sensors.ant1_antenna_acs_actual_azim               kat.sensors.ant1_cryo_48v_error
+kat.sensors.ant1_antenna_acs_actual_elev               kat.sensors.ant1_cryo_address
+kat.sensors.ant1_antenna_acs_desired_azim              kat.sensors.ant1_cryo_ambient_temperature
+kat.sensors.ant1_antenna_acs_desired_elev              kat.sensors.ant1_cryo_api_version
+kat.sensors.ant1_antenna_acs_ecat_bus                  kat.sensors.ant1_cryo_build_state
+kat.sensors.ant1_antenna_acs_encoder_azim              kat.sensors.ant1_cryo_connected
+kat.sensors.ant1_antenna_acs_encoder_elev              kat.sensors.ant1_cryo_coolingfans_error
+kat.sensors.ant1_antenna_acs_first_limit_botm          kat.sensors.ant1_cryo_cryotel_body_temperature
+kat.sensors.ant1_antenna_acs_first_limit_left          kat.sensors.ant1_cryo_cryotel_coolingproblem
+kat.sensors.ant1_antenna_acs_first_limit_right         kat.sensors.ant1_cryo_cryotel_current
+kat.sensors.ant1_antenna_acs_first_limit_top           kat.sensors.ant1_cryo_cryotel_fuse_error
+kat.sensors.ant1_antenna_acs_hard_limit_botm           kat.sensors.ant1_cryo_cryotel_on
+kat.sensors.ant1_antenna_acs_hard_limit_left           kat.sensors.ant1_cryo_ionpump_on
+kat.sensors.ant1_antenna_acs_hard_limit_right          kat.sensors.ant1_cryo_ionpump_pressure
+kat.sensors.ant1_antenna_acs_hard_limit_top            kat.sensors.ant1_cryo_lna_temperature
+kat.sensors.ant1_antenna_acs_load_elev_a               kat.sensors.ant1_cryo_omt_temperature
+kat.sensors.ant1_antenna_acs_load_elev_b               kat.sensors.ant1_cryo_state
+kat.sensors.ant1_antenna_acs_mode                      kat.sensors.ant1_cryo_thermocouple_pressure
+kat.sensors.ant1_antenna_acs_overlap_switch            kat.sensors.ant1_cryo_vacuum_broken
+kat.sensors.ant1_antenna_acs_request_azim              kat.sensors.ant1_cryo_vacuum_too_high
+kat.sensors.ant1_antenna_acs_request_elev              kat.sensors.ant1_cryo_water_leak
+kat.sensors.ant1_antenna_acs_state_app                 kat.sensors.ant1_cryo_water_temperature
+kat.sensors.ant1_antenna_acs_state_functional          kat.sensors.ant1_drive_strategy
+kat.sensors.ant1_antenna_acs_state_select              kat.sensors.ant1_enviro_address
+kat.sensors.ant1_antenna_acs_temperature_01            kat.sensors.ant1_enviro_air_pressure
+kat.sensors.ant1_antenna_acs_temperature_02            kat.sensors.ant1_enviro_air_relative_humidity
+kat.sensors.ant1_antenna_acs_temperature_03            kat.sensors.ant1_enviro_air_temperature
+kat.sensors.ant1_antenna_acs_temperature_04            kat.sensors.ant1_enviro_api_version
+kat.sensors.ant1_antenna_acs_temperature_05            kat.sensors.ant1_enviro_build_state
+kat.sensors.ant1_antenna_acs_temperature_06            kat.sensors.ant1_enviro_connected
+kat.sensors.ant1_antenna_acs_temperature_07            kat.sensors.ant1_enviro_state
+kat.sensors.ant1_antenna_acs_temperature_08            kat.sensors.ant1_enviro_wind_speed
+kat.sensors.ant1_antenna_acs_temperature_09            kat.sensors.ant1_heartbeat
+kat.sensors.ant1_antenna_acs_temperature_10            kat.sensors.ant1_inhibited
+kat.sensors.ant1_antenna_acs_temperature_11            kat.sensors.ant1_last_config_refresh_time
+kat.sensors.ant1_antenna_acs_temperature_12            kat.sensors.ant1_lock
+kat.sensors.ant1_antenna_acu_24v_supply_level          kat.sensors.ant1_mode
+kat.sensors.ant1_antenna_acu_5v_supply_level           kat.sensors.ant1_mount_lock
+kat.sensors.ant1_antenna_acu_brake_resistor_azim       kat.sensors.ant1_name
+kat.sensors.ant1_antenna_acu_brake_resistor_elev       kat.sensors.ant1_noise_diode_model_coupler_h
+kat.sensors.ant1_antenna_acu_cabinet_temp              kat.sensors.ant1_noise_diode_model_coupler_v
+kat.sensors.ant1_antenna_acu_hsink_temp                kat.sensors.ant1_noise_diode_model_pin_h
+kat.sensors.ant1_antenna_acu_ntp_addr                  kat.sensors.ant1_noise_diode_model_pin_v
+kat.sensors.ant1_antenna_acu_ntp_connect               kat.sensors.ant1_observer
+kat.sensors.ant1_antenna_acu_ntp_time                  kat.sensors.ant1_offset_fixed_projection
+kat.sensors.ant1_antenna_acu_resistor_temp_azim        kat.sensors.ant1_offset_fixed_x
+kat.sensors.ant1_antenna_acu_resistor_temp_elev        kat.sensors.ant1_offset_fixed_y
+kat.sensors.ant1_antenna_address                       kat.sensors.ant1_offset_scan_projection
+kat.sensors.ant1_antenna_api_version                   kat.sensors.ant1_offset_scan_x
+kat.sensors.ant1_antenna_build_state                   kat.sensors.ant1_offset_scan_y
+kat.sensors.ant1_antenna_connected                     kat.sensors.ant1_offset_time
+kat.sensors.ant1_antenna_drive_24v_supply_azim         kat.sensors.ant1_offset_ut1
+kat.sensors.ant1_antenna_drive_24v_supply_elev         kat.sensors.ant1_pos_actual_pointm_azim
+kat.sensors.ant1_antenna_drive_dc_voltage_azim         kat.sensors.ant1_pos_actual_pointm_elev
+kat.sensors.ant1_antenna_drive_dc_voltage_elev         kat.sensors.ant1_pos_actual_refrac_azim
+kat.sensors.ant1_antenna_drive_enable_azim             kat.sensors.ant1_pos_actual_refrac_elev
+kat.sensors.ant1_antenna_drive_enable_elev             kat.sensors.ant1_pos_actual_scan_azim
+kat.sensors.ant1_antenna_drive_enable_hrs_azim         kat.sensors.ant1_pos_actual_scan_elev
+kat.sensors.ant1_antenna_drive_enable_hrs_elev         kat.sensors.ant1_pos_delta_azim
+kat.sensors.ant1_antenna_drive_hsink_temp_azim         kat.sensors.ant1_pos_delta_elev
+kat.sensors.ant1_antenna_drive_hsink_temp_elev         kat.sensors.ant1_pos_delta_sky
+kat.sensors.ant1_antenna_drive_intl_temp_azim          kat.sensors.ant1_pos_request_base_azim
+kat.sensors.ant1_antenna_drive_intl_temp_elev          kat.sensors.ant1_pos_request_base_dec
+kat.sensors.ant1_antenna_drive_operate_hrs_azim        kat.sensors.ant1_pos_request_base_elev
+kat.sensors.ant1_antenna_drive_operate_hrs_elev        kat.sensors.ant1_pos_request_base_ra
+kat.sensors.ant1_antenna_drive_status_azim             kat.sensors.ant1_pos_request_offset_azim
+kat.sensors.ant1_antenna_drive_status_elev             kat.sensors.ant1_pos_request_offset_elev
+kat.sensors.ant1_antenna_encoder_status_azim           kat.sensors.ant1_pos_request_pointm_azim
+kat.sensors.ant1_antenna_encoder_status_elev           kat.sensors.ant1_pos_request_pointm_elev
+kat.sensors.ant1_antenna_id                            kat.sensors.ant1_pos_request_refrac_azim
+kat.sensors.ant1_antenna_motor_brake_azim              kat.sensors.ant1_pos_request_refrac_elev
+kat.sensors.ant1_antenna_motor_brake_elev              kat.sensors.ant1_pos_request_scan_azim
+kat.sensors.ant1_antenna_motor_resolver_azim           kat.sensors.ant1_pos_request_scan_dec
+kat.sensors.ant1_antenna_motor_resolver_elev           kat.sensors.ant1_pos_request_scan_elev
+kat.sensors.ant1_antenna_motor_status_azim             kat.sensors.ant1_pos_request_scan_ra
+kat.sensors.ant1_antenna_motor_status_elev             kat.sensors.ant1_rfe3_address
+kat.sensors.ant1_antenna_motor_temp_azim               kat.sensors.ant1_rfe3_api_version
+kat.sensors.ant1_antenna_motor_temp_elev               kat.sensors.ant1_rfe3_build_state
+kat.sensors.ant1_antenna_motor_torque_azim             kat.sensors.ant1_rfe3_connected
+kat.sensors.ant1_antenna_motor_torque_elev             kat.sensors.ant1_rfe3_psu_ok
+kat.sensors.ant1_antenna_motor_velocity_azim           kat.sensors.ant1_rfe3_psu_on
+kat.sensors.ant1_antenna_motor_velocity_elev           kat.sensors.ant1_rfe3_rfe15_noise_coupler_duty
+kat.sensors.ant1_antenna_state                         kat.sensors.ant1_rfe3_rfe15_noise_coupler_modulation
+kat.sensors.ant1_api_version                           kat.sensors.ant1_rfe3_rfe15_noise_coupler_on
+kat.sensors.ant1_bms_address                           kat.sensors.ant1_rfe3_rfe15_noise_coupler_period
+kat.sensors.ant1_bms_api_version                       kat.sensors.ant1_rfe3_rfe15_noise_pin_duty
+kat.sensors.ant1_bms_build_state                       kat.sensors.ant1_rfe3_rfe15_noise_pin_modulation
+kat.sensors.ant1_bms_cam_fpga_comms_error_count        kat.sensors.ant1_rfe3_rfe15_noise_pin_on
+kat.sensors.ant1_bms_cam_fpga_comms_ok                 kat.sensors.ant1_rfe3_rfe15_noise_pin_period
+kat.sensors.ant1_bms_cam_psu_temperature               kat.sensors.ant1_rfe3_rfe15_rfe1_lna_psu_ok
+kat.sensors.ant1_bms_cam_temperature                   kat.sensors.ant1_rfe3_rfe15_rfe1_lna_psu_on
+kat.sensors.ant1_bms_chiller_flow_present              kat.sensors.ant1_rfe3_rfe15_temperature
+kat.sensors.ant1_bms_chiller_motor_not_tripped         kat.sensors.ant1_rfe3_state
+kat.sensors.ant1_bms_chiller_pump_running              kat.sensors.ant1_rfe3_temperature
+kat.sensors.ant1_bms_chiller_supply_temperature        kat.sensors.ant1_rfe5_address
+kat.sensors.ant1_bms_chiller_surge_arrestor_not_blown  kat.sensors.ant1_rfe5_api_version
+kat.sensors.ant1_bms_chiller_temperature_above_23degc  kat.sensors.ant1_rfe5_attenuator_horizontal
+kat.sensors.ant1_bms_chiller_water_level_low           kat.sensors.ant1_rfe5_attenuator_vertical
+kat.sensors.ant1_bms_chiller_water_level_warning       kat.sensors.ant1_rfe5_build_state
+kat.sensors.ant1_bms_connected                         kat.sensors.ant1_rfe5_connected
+kat.sensors.ant1_bms_db_acu_cb                         kat.sensors.ant1_rfe5_focus_psu_10v
+kat.sensors.ant1_bms_db_cam_cabinet                    kat.sensors.ant1_rfe5_focus_psu_24v
+kat.sensors.ant1_bms_db_chiller                        kat.sensors.ant1_rfe5_focus_psu_min10v
+kat.sensors.ant1_bms_db_main_cb                        kat.sensors.ant1_rfe5_horizontal_power_in
+kat.sensors.ant1_bms_db_phase_failure                  kat.sensors.ant1_rfe5_horizontal_power_out
+kat.sensors.ant1_bms_db_plug_sockets                   kat.sensors.ant1_rfe5_pedestal_psu_18v
+kat.sensors.ant1_bms_db_rfe_stage5                     kat.sensors.ant1_rfe5_pedestal_psu_8v
+kat.sensors.ant1_bms_db_surge_protection               kat.sensors.ant1_rfe5_pedestal_psu_min8v
+kat.sensors.ant1_bms_fire_ok                           kat.sensors.ant1_rfe5_rfe6_laser_alarm_horizontal
+kat.sensors.ant1_bms_gps_latitude                      kat.sensors.ant1_rfe5_rfe6_laser_alarm_vertical
+kat.sensors.ant1_bms_gps_longitude                     kat.sensors.ant1_rfe5_rfe6_rf_alarm_horizontal
+kat.sensors.ant1_bms_gps_nmea                          kat.sensors.ant1_rfe5_rfe6_rf_alarm_vertical
+kat.sensors.ant1_bms_gps_nmea_strings_selected         kat.sensors.ant1_rfe5_rfe6_rf_strength_horizontal
+kat.sensors.ant1_bms_gps_ntp_clock_adjust              kat.sensors.ant1_rfe5_rfe6_rf_strength_vertical
+kat.sensors.ant1_bms_gps_ntp_server_name               kat.sensors.ant1_rfe5_rfe6_temperature
+kat.sensors.ant1_bms_gps_ntp_synch_ok                  kat.sensors.ant1_rfe5_state
+kat.sensors.ant1_bms_gps_num_satellites                kat.sensors.ant1_rfe5_temperature
+kat.sensors.ant1_bms_gps_satlock_ok                    kat.sensors.ant1_rfe5_unit_serial_number
+kat.sensors.ant1_bms_gps_time                          kat.sensors.ant1_rfe5_vertical_power_in
+kat.sensors.ant1_bms_gps_time_drift                    kat.sensors.ant1_rfe5_vertical_power_out
+kat.sensors.ant1_bms_gps_time_source                   kat.sensors.ant1_scan
+kat.sensors.ant1_bms_intrusion_ok                      kat.sensors.ant1_scan_percentage_complete
+kat.sensors.ant1_bms_lru_analog_io1                    kat.sensors.ant1_scan_status
+kat.sensors.ant1_bms_lru_analog_io2                    kat.sensors.ant1_sensors_ok
+kat.sensors.ant1_bms_lru_digital_io1                   kat.sensors.ant1_target
+kat.sensors.ant1_bms_lru_digital_io2                   kat.sensors.ant1_type
+kat.sensors.ant1_bms_python_log_level                  kat.sensors.ant1_windstow_active
+kat.sensors.ant1_bms_state                             kat.sensors.ant1_windstow_status
+
+Rfe7 Sensors [ kat.rfe7 (Proxy/Device);G ]
+------------
+In (27 logs; 27 unique) [23]: kat.sensors.rfe7_
+
+kat.sensors.rfe7_api_version                                            kat.sensors.rfe7_rfe7_downconverter_ant3_v_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_amplifier_amp
+kat.sensors.rfe7_build_state                                            kat.sensors.rfe7_rfe7_downconverter_ant3_v_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_amplifier_temp
+kat.sensors.rfe7_comms_ok                                               kat.sensors.rfe7_rfe7_downconverter_ant3_v_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_amplifier_volt
+kat.sensors.rfe7_heartbeat                                              kat.sensors.rfe7_rfe7_downconverter_ant3_v_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_c_calibration
+kat.sensors.rfe7_name                                                   kat.sensors.rfe7_rfe7_downconverter_ant3_v_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_m_calibration
+kat.sensors.rfe7_rfe7_address                                           kat.sensors.rfe7_rfe7_downconverter_ant3_v_state                        kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_power
+kat.sensors.rfe7_rfe7_api_version                                       kat.sensors.rfe7_rfe7_downconverter_ant3_v_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant7_h_input_volt
+kat.sensors.rfe7_rfe7_build_state                                       kat.sensors.rfe7_rfe7_downconverter_ant3_v_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant7_h_intermediate_amplifier_amp
+kat.sensors.rfe7_rfe7_cam_5_volt                                        kat.sensors.rfe7_rfe7_downconverter_ant3_v_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant7_h_intermediate_amplifier_temp
+kat.sensors.rfe7_rfe7_cam_antenna_count                                 kat.sensors.rfe7_rfe7_downconverter_ant3_v_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant7_h_intermediate_amplifier_volt
+kat.sensors.rfe7_rfe7_cam_converter_amp                                 kat.sensors.rfe7_rfe7_downconverter_ant4_h_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant7_h_intermediate_c_calibration
+kat.sensors.rfe7_rfe7_cam_fpga_amp                                      kat.sensors.rfe7_rfe7_downconverter_ant4_h_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant7_h_intermediate_m_calibration
+kat.sensors.rfe7_rfe7_cam_fpga_state                                    kat.sensors.rfe7_rfe7_downconverter_ant4_h_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant7_h_intermediate_power
+kat.sensors.rfe7_rfe7_cam_fpga_version_firmware                         kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant7_h_lo1_power
+kat.sensors.rfe7_rfe7_cam_fpga_version_hardware                         kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant7_h_lo2_power
+kat.sensors.rfe7_rfe7_cam_lrus_absent                                   kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_amplifier1_amp
+kat.sensors.rfe7_rfe7_cam_lrus_present                                  kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_amplifier1_temp
+kat.sensors.rfe7_rfe7_cam_sbc_amp                                       kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_amplifier1_volt
+kat.sensors.rfe7_rfe7_cam_state                                         kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_amplifier2_amp
+kat.sensors.rfe7_rfe7_cam_temp                                          kat.sensors.rfe7_rfe7_downconverter_ant4_h_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_amplifier2_temp
+kat.sensors.rfe7_rfe7_cam_timesync                                      kat.sensors.rfe7_rfe7_downconverter_ant4_h_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_amplifier2_volt
+kat.sensors.rfe7_rfe7_cam_watchdog                                      kat.sensors.rfe7_rfe7_downconverter_ant4_h_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_c_calibration
+kat.sensors.rfe7_rfe7_connected                                         kat.sensors.rfe7_rfe7_downconverter_ant4_h_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_m_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant4_h_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant7_h_output_power
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant4_h_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant7_h_overpower
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant4_h_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant7_h_overpowercounter
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant4_h_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant7_h_peltier_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant4_h_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant7_h_peltier_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant7_h_plate_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant7_h_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant7_h_state
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant7_h_system_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant7_h_system_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant7_h_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant7_h_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant7_v_attenuation
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant4_h_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant7_v_auxiliary_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant4_h_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant7_v_auxiliary_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant4_h_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_amplifier_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant4_h_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_amplifier_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant4_h_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_amplifier_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant4_h_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_c_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant4_h_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_m_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant4_h_state                        kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_power
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant4_h_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant7_v_input_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant4_h_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant7_v_intermediate_amplifier_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant4_h_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant7_v_intermediate_amplifier_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant4_h_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant7_v_intermediate_amplifier_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant4_v_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant7_v_intermediate_c_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant4_v_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant7_v_intermediate_m_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant4_v_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant7_v_intermediate_power
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant7_v_lo1_power
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant7_v_lo2_power
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_amplifier1_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_amplifier1_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_amplifier1_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_state                        kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_amplifier2_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant4_v_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_amplifier2_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant4_v_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_amplifier2_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant4_v_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_c_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_h_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant4_v_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_m_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant4_v_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant7_v_output_power
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant4_v_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant7_v_overpower
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant4_v_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant7_v_overpowercounter
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant4_v_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant7_v_peltier_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant4_v_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant7_v_peltier_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant7_v_plate_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant7_v_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant7_v_state
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant7_v_system_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant7_v_system_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant7_v_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant7_v_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_m_calibration         kat.sensors.rfe7_rfe7_lo1_12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant4_v_output_power                 kat.sensors.rfe7_rfe7_lo1_12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant4_v_overpower                    kat.sensors.rfe7_rfe7_lo1_15_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant4_v_overpowercounter             kat.sensors.rfe7_rfe7_lo1_15_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant4_v_peltier_amp                  kat.sensors.rfe7_rfe7_lo1_c_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant4_v_peltier_powerswitch          kat.sensors.rfe7_rfe7_lo1_frequency
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant4_v_plate_temp                   kat.sensors.rfe7_rfe7_lo1_lockdetect
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant4_v_powerswitch                  kat.sensors.rfe7_rfe7_lo1_m_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant4_v_state                        kat.sensors.rfe7_rfe7_lo1_pa_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant4_v_system_amp                   kat.sensors.rfe7_rfe7_lo1_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant4_v_system_volt                  kat.sensors.rfe7_rfe7_lo1_rfpower
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant4_v_version_firmware             kat.sensors.rfe7_rfe7_lo1_state
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant4_v_version_hardware             kat.sensors.rfe7_rfe7_lo1_synth_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant5_h_attenuation                  kat.sensors.rfe7_rfe7_lo1_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant5_h_auxiliary_amp                kat.sensors.rfe7_rfe7_lo1_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant5_h_auxiliary_volt               kat.sensors.rfe7_rfe7_lo2_12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_amplifier_amp          kat.sensors.rfe7_rfe7_lo2_12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_amplifier_temp         kat.sensors.rfe7_rfe7_lo2_15_amp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_amplifier_volt         kat.sensors.rfe7_rfe7_lo2_15_volt
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_c_calibration          kat.sensors.rfe7_rfe7_lo2_c_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_m_calibration          kat.sensors.rfe7_rfe7_lo2_lockdetect
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_state                        kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_power                  kat.sensors.rfe7_rfe7_lo2_m_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant5_h_input_volt                   kat.sensors.rfe7_rfe7_lo2_osc_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant5_h_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_lo2_pa_temp
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant5_h_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_lo2_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant1_v_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant5_h_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_lo2_rfpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant5_h_intermediate_c_calibration   kat.sensors.rfe7_rfe7_lo2_state
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant5_h_intermediate_m_calibration   kat.sensors.rfe7_rfe7_lo2_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant5_h_intermediate_power           kat.sensors.rfe7_rfe7_lo2_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant5_h_lo1_power                    kat.sensors.rfe7_rfe7_orx1_12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant5_h_lo2_power                    kat.sensors.rfe7_rfe7_orx1_12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_amplifier1_amp        kat.sensors.rfe7_rfe7_orx1_ant1_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_amplifier1_temp       kat.sensors.rfe7_rfe7_orx1_ant1_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_amplifier1_volt       kat.sensors.rfe7_rfe7_orx1_ant1_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_amplifier2_amp        kat.sensors.rfe7_rfe7_orx1_ant1_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_amplifier2_temp       kat.sensors.rfe7_rfe7_orx1_ant1_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_amplifier2_volt       kat.sensors.rfe7_rfe7_orx1_ant1_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_c_calibration         kat.sensors.rfe7_rfe7_orx1_ant1_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_m_calibration         kat.sensors.rfe7_rfe7_orx1_ant1_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant5_h_output_power                 kat.sensors.rfe7_rfe7_orx1_ant1_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant5_h_overpower                    kat.sensors.rfe7_rfe7_orx1_ant1_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant5_h_overpowercounter             kat.sensors.rfe7_rfe7_orx1_ant1_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant5_h_peltier_amp                  kat.sensors.rfe7_rfe7_orx1_ant1_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant5_h_peltier_powerswitch          kat.sensors.rfe7_rfe7_orx1_ant2_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant5_h_plate_temp                   kat.sensors.rfe7_rfe7_orx1_ant2_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant5_h_powerswitch                  kat.sensors.rfe7_rfe7_orx1_ant2_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant5_h_state                        kat.sensors.rfe7_rfe7_orx1_ant2_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant5_h_system_amp                   kat.sensors.rfe7_rfe7_orx1_ant2_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant5_h_system_volt                  kat.sensors.rfe7_rfe7_orx1_ant2_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant5_h_version_firmware             kat.sensors.rfe7_rfe7_orx1_ant2_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant5_h_version_hardware             kat.sensors.rfe7_rfe7_orx1_ant2_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant5_v_attenuation                  kat.sensors.rfe7_rfe7_orx1_ant2_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant5_v_auxiliary_amp                kat.sensors.rfe7_rfe7_orx1_ant2_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant5_v_auxiliary_volt               kat.sensors.rfe7_rfe7_orx1_ant2_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_amplifier_amp          kat.sensors.rfe7_rfe7_orx1_ant2_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_amplifier_temp         kat.sensors.rfe7_rfe7_orx1_ant3_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_amplifier_volt         kat.sensors.rfe7_rfe7_orx1_ant3_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_c_calibration          kat.sensors.rfe7_rfe7_orx1_ant3_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_m_calibration          kat.sensors.rfe7_rfe7_orx1_ant3_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_state                        kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_power                  kat.sensors.rfe7_rfe7_orx1_ant3_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant5_v_input_volt                   kat.sensors.rfe7_rfe7_orx1_ant3_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant5_v_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_orx1_ant3_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant5_v_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_orx1_ant3_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_h_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant5_v_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_orx1_ant3_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant5_v_intermediate_c_calibration   kat.sensors.rfe7_rfe7_orx1_ant3_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant5_v_intermediate_m_calibration   kat.sensors.rfe7_rfe7_orx1_ant3_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant5_v_intermediate_power           kat.sensors.rfe7_rfe7_orx1_ant3_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant5_v_lo1_power                    kat.sensors.rfe7_rfe7_orx1_platetemp_left
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant5_v_lo2_power                    kat.sensors.rfe7_rfe7_orx1_platetemp_right
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_amplifier1_amp        kat.sensors.rfe7_rfe7_orx1_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_amplifier1_temp       kat.sensors.rfe7_rfe7_orx1_state
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_amplifier1_volt       kat.sensors.rfe7_rfe7_orx1_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_amplifier2_amp        kat.sensors.rfe7_rfe7_orx1_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_amplifier2_temp       kat.sensors.rfe7_rfe7_orx2_12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_amplifier2_volt       kat.sensors.rfe7_rfe7_orx2_12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_c_calibration         kat.sensors.rfe7_rfe7_orx2_ant4_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_m_calibration         kat.sensors.rfe7_rfe7_orx2_ant4_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant5_v_output_power                 kat.sensors.rfe7_rfe7_orx2_ant4_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant5_v_overpower                    kat.sensors.rfe7_rfe7_orx2_ant4_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant5_v_overpowercounter             kat.sensors.rfe7_rfe7_orx2_ant4_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant5_v_peltier_amp                  kat.sensors.rfe7_rfe7_orx2_ant4_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant5_v_peltier_powerswitch          kat.sensors.rfe7_rfe7_orx2_ant4_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant5_v_plate_temp                   kat.sensors.rfe7_rfe7_orx2_ant4_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant5_v_powerswitch                  kat.sensors.rfe7_rfe7_orx2_ant4_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant5_v_state                        kat.sensors.rfe7_rfe7_orx2_ant4_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant5_v_system_amp                   kat.sensors.rfe7_rfe7_orx2_ant4_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant5_v_system_volt                  kat.sensors.rfe7_rfe7_orx2_ant4_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant5_v_version_firmware             kat.sensors.rfe7_rfe7_orx2_ant5_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant5_v_version_hardware             kat.sensors.rfe7_rfe7_orx2_ant5_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant6_h_attenuation                  kat.sensors.rfe7_rfe7_orx2_ant5_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant6_h_auxiliary_amp                kat.sensors.rfe7_rfe7_orx2_ant5_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant6_h_auxiliary_volt               kat.sensors.rfe7_rfe7_orx2_ant5_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_amplifier_amp          kat.sensors.rfe7_rfe7_orx2_ant5_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_amplifier_temp         kat.sensors.rfe7_rfe7_orx2_ant5_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_amplifier_volt         kat.sensors.rfe7_rfe7_orx2_ant5_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_c_calibration          kat.sensors.rfe7_rfe7_orx2_ant5_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_m_calibration          kat.sensors.rfe7_rfe7_orx2_ant5_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_state                        kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_power                  kat.sensors.rfe7_rfe7_orx2_ant5_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant6_h_input_volt                   kat.sensors.rfe7_rfe7_orx2_ant5_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant6_h_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_orx2_ant6_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant6_h_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_orx2_ant6_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant2_v_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant6_h_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_orx2_ant6_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant6_h_intermediate_c_calibration   kat.sensors.rfe7_rfe7_orx2_ant6_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant6_h_intermediate_m_calibration   kat.sensors.rfe7_rfe7_orx2_ant6_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant6_h_intermediate_power           kat.sensors.rfe7_rfe7_orx2_ant6_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant6_h_lo1_power                    kat.sensors.rfe7_rfe7_orx2_ant6_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant6_h_lo2_power                    kat.sensors.rfe7_rfe7_orx2_ant6_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_amplifier1_amp        kat.sensors.rfe7_rfe7_orx2_ant6_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_amplifier1_temp       kat.sensors.rfe7_rfe7_orx2_ant6_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_amplifier1_volt       kat.sensors.rfe7_rfe7_orx2_ant6_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_amplifier2_amp        kat.sensors.rfe7_rfe7_orx2_ant6_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_amplifier2_temp       kat.sensors.rfe7_rfe7_orx2_platetemp_left
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_amplifier2_volt       kat.sensors.rfe7_rfe7_orx2_platetemp_right
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_c_calibration         kat.sensors.rfe7_rfe7_orx2_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_m_calibration         kat.sensors.rfe7_rfe7_orx2_state
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant6_h_output_power                 kat.sensors.rfe7_rfe7_orx2_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant6_h_overpower                    kat.sensors.rfe7_rfe7_orx2_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant6_h_overpowercounter             kat.sensors.rfe7_rfe7_orx3_12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant6_h_peltier_amp                  kat.sensors.rfe7_rfe7_orx3_12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant6_h_peltier_powerswitch          kat.sensors.rfe7_rfe7_orx3_ant7_h_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant6_h_plate_temp                   kat.sensors.rfe7_rfe7_orx3_ant7_h_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant6_h_powerswitch                  kat.sensors.rfe7_rfe7_orx3_ant7_h_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant6_h_state                        kat.sensors.rfe7_rfe7_orx3_ant7_h_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant6_h_system_amp                   kat.sensors.rfe7_rfe7_orx3_ant7_h_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant6_h_system_volt                  kat.sensors.rfe7_rfe7_orx3_ant7_h_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant6_h_version_firmware             kat.sensors.rfe7_rfe7_orx3_ant7_v_input_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant6_h_version_hardware             kat.sensors.rfe7_rfe7_orx3_ant7_v_input_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant6_v_attenuation                  kat.sensors.rfe7_rfe7_orx3_ant7_v_opticalinputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant6_v_auxiliary_amp                kat.sensors.rfe7_rfe7_orx3_ant7_v_output_a_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant6_v_auxiliary_volt               kat.sensors.rfe7_rfe7_orx3_ant7_v_output_b_calibration
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_overpowercounter             kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_amplifier_amp          kat.sensors.rfe7_rfe7_orx3_ant7_v_rfoutputpower
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_peltier_amp                  kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_amplifier_temp         kat.sensors.rfe7_rfe7_orx3_platetemp_left
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_peltier_powerswitch          kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_amplifier_volt         kat.sensors.rfe7_rfe7_orx3_platetemp_right
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_plate_temp                   kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_c_calibration          kat.sensors.rfe7_rfe7_orx3_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_powerswitch                  kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_m_calibration          kat.sensors.rfe7_rfe7_orx3_state
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_state                        kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_power                  kat.sensors.rfe7_rfe7_orx3_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_system_amp                   kat.sensors.rfe7_rfe7_downconverter_ant6_v_input_volt                   kat.sensors.rfe7_rfe7_orx3_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_system_volt                  kat.sensors.rfe7_rfe7_downconverter_ant6_v_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_psu_12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_version_firmware             kat.sensors.rfe7_rfe7_downconverter_ant6_v_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_psu_12_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant3_h_version_hardware             kat.sensors.rfe7_rfe7_downconverter_ant6_v_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_psu_12_temp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_attenuation                  kat.sensors.rfe7_rfe7_downconverter_ant6_v_intermediate_c_calibration   kat.sensors.rfe7_rfe7_psu_12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_auxiliary_amp                kat.sensors.rfe7_rfe7_downconverter_ant6_v_intermediate_m_calibration   kat.sensors.rfe7_rfe7_psu_15_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_auxiliary_volt               kat.sensors.rfe7_rfe7_downconverter_ant6_v_intermediate_power           kat.sensors.rfe7_rfe7_psu_15_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_amplifier_amp          kat.sensors.rfe7_rfe7_downconverter_ant6_v_lo1_power                    kat.sensors.rfe7_rfe7_psu_15_temp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_amplifier_temp         kat.sensors.rfe7_rfe7_downconverter_ant6_v_lo2_power                    kat.sensors.rfe7_rfe7_psu_15_volt
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_amplifier_volt         kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_amplifier1_amp        kat.sensors.rfe7_rfe7_psu_cam5_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_c_calibration          kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_amplifier1_temp       kat.sensors.rfe7_rfe7_psu_cam5_temp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_m_calibration          kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_amplifier1_volt       kat.sensors.rfe7_rfe7_psu_cam5_volt
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_power                  kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_amplifier2_amp        kat.sensors.rfe7_rfe7_psu_n12_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_input_volt                   kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_amplifier2_temp       kat.sensors.rfe7_rfe7_psu_n12_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_intermediate_amplifier_amp   kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_amplifier2_volt       kat.sensors.rfe7_rfe7_psu_n12_temp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_intermediate_amplifier_temp  kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_c_calibration         kat.sensors.rfe7_rfe7_psu_n12_volt
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_intermediate_amplifier_volt  kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_m_calibration         kat.sensors.rfe7_rfe7_psu_state
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_intermediate_c_calibration   kat.sensors.rfe7_rfe7_downconverter_ant6_v_output_power                 kat.sensors.rfe7_rfe7_psu_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_intermediate_m_calibration   kat.sensors.rfe7_rfe7_downconverter_ant6_v_overpower                    kat.sensors.rfe7_rfe7_psu_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_intermediate_power           kat.sensors.rfe7_rfe7_downconverter_ant6_v_overpowercounter             kat.sensors.rfe7_rfe7_ref_15_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_lo1_power                    kat.sensors.rfe7_rfe7_downconverter_ant6_v_peltier_amp                  kat.sensors.rfe7_rfe7_ref_15_volt
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_lo2_power                    kat.sensors.rfe7_rfe7_downconverter_ant6_v_peltier_powerswitch          kat.sensors.rfe7_rfe7_ref_body_temp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_amplifier1_amp        kat.sensors.rfe7_rfe7_downconverter_ant6_v_plate_temp                   kat.sensors.rfe7_rfe7_ref_oscillator_temp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_amplifier1_temp       kat.sensors.rfe7_rfe7_downconverter_ant6_v_powerswitch                  kat.sensors.rfe7_rfe7_ref_powerswitch
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_amplifier1_volt       kat.sensors.rfe7_rfe7_downconverter_ant6_v_state                        kat.sensors.rfe7_rfe7_ref_state
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_amplifier2_amp        kat.sensors.rfe7_rfe7_downconverter_ant6_v_system_amp                   kat.sensors.rfe7_rfe7_ref_version_firmware
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_amplifier2_temp       kat.sensors.rfe7_rfe7_downconverter_ant6_v_system_volt                  kat.sensors.rfe7_rfe7_ref_version_hardware
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_amplifier2_volt       kat.sensors.rfe7_rfe7_downconverter_ant6_v_version_firmware             kat.sensors.rfe7_rfe7_state
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_c_calibration         kat.sensors.rfe7_rfe7_downconverter_ant6_v_version_hardware             kat.sensors.rfe7_sensors_ok
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_m_calibration         kat.sensors.rfe7_rfe7_downconverter_ant7_h_attenuation                  kat.sensors.rfe7_type
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_output_power                 kat.sensors.rfe7_rfe7_downconverter_ant7_h_auxiliary_amp
+kat.sensors.rfe7_rfe7_downconverter_ant3_v_overpower                    kat.sensors.rfe7_rfe7_downconverter_ant7_h_auxiliary_volt
+
+
+Katportal Sensors [ kat.portal (Proxy/Device);G ]
+-----------------
+kat.sensors.portal_heartbeat
+
+
+Kataware Sensors [  kat.kataware (Proxy/Device);G  ]
+----------------
+In (27 logs; 27 unique) [23]: kat.sensors.kataware_
+
+kat.sensors.kataware_address                                    kat.sensors.kataware_alarms_alarm_Monitor_kat_ops_Queue         kat.sensors.kataware_alarms_alarm_kat_timeplot_Disk_Use
+kat.sensors.kataware_alarms_alarm_ANT1_Wind_Load_Potential      kat.sensors.kataware_alarms_alarm_Monitor_kat_ops_Store         kat.sensors.kataware_alarms_alarm_kat_timeplot_Mem_Use
+kat.sensors.kataware_alarms_alarm_ASC_Analog_Comms              kat.sensors.kataware_alarms_alarm_Monitor_kat_proxy_Queue       kat.sensors.kataware_alarms_alarm_time_plot_Memory_Use
+kat.sensors.kataware_alarms_alarm_ASC_Chiller_water_temp        kat.sensors.kataware_alarms_alarm_Monitor_kat_proxy_Store       kat.sensors.kataware_alarms_count_acknowledged_exclude_nominal
+kat.sensors.kataware_alarms_alarm_ASC_Combo_Comms               kat.sensors.kataware_alarms_alarm_NFS_disk_free                 kat.sensors.kataware_alarms_count_cleared_exclude_nominal
+kat.sensors.kataware_alarms_alarm_ASC_Digital_Comms             kat.sensors.kataware_alarms_alarm_Ped1_chiller_motor            kat.sensors.kataware_alarms_count_critical_exclude_cleared
+kat.sensors.kataware_alarms_alarm_ASC_UPS_Battery_Discharging   kat.sensors.kataware_alarms_alarm_Ped2_chiller_motor            kat.sensors.kataware_alarms_count_error_exclude_cleared
+kat.sensors.kataware_alarms_alarm_ASC_UPS_Battery_Low           kat.sensors.kataware_alarms_alarm_Ped3_chiller_motor            kat.sensors.kataware_alarms_count_known_exclude_nominal
+kat.sensors.kataware_alarms_alarm_ASC_UPS_Ok                    kat.sensors.kataware_alarms_alarm_Ped4_chiller_motor            kat.sensors.kataware_alarms_count_maintenance_exclude_cleared
+kat.sensors.kataware_alarms_alarm_ASC_air_temp                  kat.sensors.kataware_alarms_alarm_Ped5_chiller_motor            kat.sensors.kataware_alarms_count_new_exclude_nominal
+kat.sensors.kataware_alarms_alarm_Ant1_acs_mode_error           kat.sensors.kataware_alarms_alarm_Ped6_chiller_motor            kat.sensors.kataware_alarms_count_nominal_exclude_cleared
+kat.sensors.kataware_alarms_alarm_Ant2_acs_mode_error           kat.sensors.kataware_alarms_alarm_Ped7_chiller_motor            kat.sensors.kataware_alarms_count_unknown_exclude_cleared
+kat.sensors.kataware_alarms_alarm_Ant3_acs_mode_error           kat.sensors.kataware_alarms_alarm_Sources_not_current           kat.sensors.kataware_alarms_count_warn_exclude_cleared
+kat.sensors.kataware_alarms_alarm_Ant4_acs_mode_error           kat.sensors.kataware_alarms_alarm_Varkatconfig_not_up_to_date   kat.sensors.kataware_alarms_list
+kat.sensors.kataware_alarms_alarm_Ant5_acs_mode_error           kat.sensors.kataware_alarms_alarm_Varkatconfig_uncommitted      kat.sensors.kataware_alarms_list_unknown
+kat.sensors.kataware_alarms_alarm_Ant6_acs_mode_error           kat.sensors.kataware_alarms_alarm_kat_dc1_CPU_Use               kat.sensors.kataware_alarms_maintenance_resources
+kat.sensors.kataware_alarms_alarm_Ant7_acs_mode_error           kat.sensors.kataware_alarms_alarm_kat_dc1_Disk_Use              kat.sensors.kataware_alarms_remote_alert
+kat.sensors.kataware_alarms_alarm_CC_Analog_Comms               kat.sensors.kataware_alarms_alarm_kat_dc1_Mem_Use               kat.sensors.kataware_api_version
+kat.sensors.kataware_alarms_alarm_CC_Chiller_water_temp         kat.sensors.kataware_alarms_alarm_kat_monctl_CPU_Use            kat.sensors.kataware_build_state
+kat.sensors.kataware_alarms_alarm_CC_Digital_Comms              kat.sensors.kataware_alarms_alarm_kat_monctl_Disk_Use           kat.sensors.kataware_heartbeat
+kat.sensors.kataware_alarms_alarm_CC_UPS_Battery_Low            kat.sensors.kataware_alarms_alarm_kat_monctl_Mem_Use            kat.sensors.kataware_ils_remote_alert
+kat.sensors.kataware_alarms_alarm_CC_UPS_Ok                     kat.sensors.kataware_alarms_alarm_kat_ops_CPU_Use               kat.sensors.kataware_ils_send_fail_count
+kat.sensors.kataware_alarms_alarm_CC_air_temp                   kat.sensors.kataware_alarms_alarm_kat_ops_Disk_Use              kat.sensors.kataware_ils_send_queue_size
+kat.sensors.kataware_alarms_alarm_CMC_Analog_Comms              kat.sensors.kataware_alarms_alarm_kat_ops_Mem_Use               kat.sensors.kataware_ils_send_success_count
+kat.sensors.kataware_alarms_alarm_CMC_Digital_Comms             kat.sensors.kataware_alarms_alarm_kat_proxy_CPU_Use             kat.sensors.kataware_ils_sensor_count
+kat.sensors.kataware_alarms_alarm_DBE7_ADC_Terminated           kat.sensors.kataware_alarms_alarm_kat_proxy_Disk_Use            kat.sensors.kataware_name
+kat.sensors.kataware_alarms_alarm_Monitor_kat_monctl_Queue      kat.sensors.kataware_alarms_alarm_kat_proxy_Mem_Use             kat.sensors.kataware_start_time
+kat.sensors.kataware_alarms_alarm_Monitor_kat_monctl_Store      kat.sensors.kataware_alarms_alarm_kat_timeplot_CPU_Use          
+
+
+Kararchive Sensors [  kat.katarchive (Proxy/Device);G  ]
+------------------
+In (27 logs; 27 unique) [23]: kat.sensors.katarchive
+
+kat.sensors.katarchive_cr_is_alive         kat.sensors.katarchive_filemgr_url         kat.sensors.katarchive_fm_is_alive         kat.sensors.katarchive_product_server_url  kat.sensors.katarchive_workflowmgr_url
+
+
+Launcher Sensors [ kat.ctl (Proxy/Device);G ]
+----------------
+In (27 logs; 27 unique) [23]: kat.sensors.launcher
+
+kat.sensors.launcher_address                   kat.sensors.launcher_name                      kat.sensors.launcher_node_status_kat_proxy     kat.sensors.launcher_system_nodes
+kat.sensors.launcher_api_version               kat.sensors.launcher_node_status_kat_dc1       kat.sensors.launcher_node_status_kat_timeplot  kat.sensors.launcher_system_resource
+kat.sensors.launcher_build_state               kat.sensors.launcher_node_status_kat_monctl    kat.sensors.launcher_site                      kat.sensors.launcher_system_state
+kat.sensors.launcher_heartbeat                 kat.sensors.launcher_node_status_kat_ops       kat.sensors.launcher_start_time                
+
+
+System Controller Sensors [ kat.sys (Proxy/Device);G ]
+-------------------------
+In (27 logs; 27 unique) [23]: kat.sensors.sys_
+
+kat.sensors.sys_address                           kat.sensors.sys_heartbeats_rfe7                   kat.sensors.sys_monitor_sched                     kat.sensors.sys_watchdogs_anc
+kat.sensors.sys_allocations                       kat.sensors.sys_heartbeats_sched                  kat.sensors.sys_monitor_sys                       kat.sensors.sys_watchdogs_ant1
+kat.sensors.sys_api_version                       kat.sensors.sys_heartbeats_sys                    kat.sensors.sys_name                              kat.sensors.sys_watchdogs_ant2
+kat.sensors.sys_build_state                       kat.sensors.sys_katobs_database_ok                kat.sensors.sys_node_status_kat_dc1               kat.sensors.sys_watchdogs_ant3
+kat.sensors.sys_config_successful                 kat.sensors.sys_maintenance_allocations           kat.sensors.sys_node_status_kat_monctl            kat.sensors.sys_watchdogs_ant4
+kat.sensors.sys_heartbeat                         kat.sensors.sys_monitor_anc                       kat.sensors.sys_node_status_kat_ops               kat.sensors.sys_watchdogs_ant5
+kat.sensors.sys_heartbeats_anc                    kat.sensors.sys_monitor_ant1                      kat.sensors.sys_node_status_kat_proxy             kat.sensors.sys_watchdogs_ant6
+kat.sensors.sys_heartbeats_ant1                   kat.sensors.sys_monitor_ant2                      kat.sensors.sys_node_status_kat_timeplot          kat.sensors.sys_watchdogs_ant7
+kat.sensors.sys_heartbeats_ant2                   kat.sensors.sys_monitor_ant3                      kat.sensors.sys_nodes                             kat.sensors.sys_watchdogs_dbe7
+kat.sensors.sys_heartbeats_ant3                   kat.sensors.sys_monitor_ant4                      kat.sensors.sys_scheduler_connected               kat.sensors.sys_watchdogs_exe
+kat.sensors.sys_heartbeats_ant4                   kat.sensors.sys_monitor_ant5                      kat.sensors.sys_script_arguments                  kat.sensors.sys_watchdogs_katarchive
+kat.sensors.sys_heartbeats_ant5                   kat.sensors.sys_monitor_ant6                      kat.sensors.sys_script_description                kat.sensors.sys_watchdogs_kataware
+kat.sensors.sys_heartbeats_ant6                   kat.sensors.sys_monitor_ant7                      kat.sensors.sys_script_endtime                    kat.sensors.sys_watchdogs_katstore
+kat.sensors.sys_heartbeats_ant7                   kat.sensors.sys_monitor_dbe7                      kat.sensors.sys_script_experiment_id              kat.sensors.sys_watchdogs_launcher
+kat.sensors.sys_heartbeats_dbe7                   kat.sensors.sys_monitor_exe                       kat.sensors.sys_script_name                       kat.sensors.sys_watchdogs_mon_kat_monctl
+kat.sensors.sys_heartbeats_exe                    kat.sensors.sys_monitor_katarchive                kat.sensors.sys_script_nd_params                  kat.sensors.sys_watchdogs_mon_kat_ops
+kat.sensors.sys_heartbeats_katarchive             kat.sensors.sys_monitor_kataware                  kat.sensors.sys_script_observer                   kat.sensors.sys_watchdogs_mon_kat_proxy
+kat.sensors.sys_heartbeats_kataware               kat.sensors.sys_monitor_katstore                  kat.sensors.sys_script_rf_params                  kat.sensors.sys_watchdogs_nm_kat_dc1
+kat.sensors.sys_heartbeats_katstore               kat.sensors.sys_monitor_launcher                  kat.sensors.sys_script_starttime                  kat.sensors.sys_watchdogs_nm_kat_monctl
+kat.sensors.sys_heartbeats_launcher               kat.sensors.sys_monitor_mon_kat_monctl            kat.sensors.sys_script_status                     kat.sensors.sys_watchdogs_nm_kat_ops
+kat.sensors.sys_heartbeats_mon_kat_monctl         kat.sensors.sys_monitor_mon_kat_ops               kat.sensors.sys_start_time                        kat.sensors.sys_watchdogs_nm_kat_proxy
+kat.sensors.sys_heartbeats_mon_kat_ops            kat.sensors.sys_monitor_mon_kat_proxy             kat.sensors.sys_system_resource                   kat.sensors.sys_watchdogs_nm_kat_timeplot
+kat.sensors.sys_heartbeats_mon_kat_proxy          kat.sensors.sys_monitor_nm_kat_dc1                kat.sensors.sys_system_state                      kat.sensors.sys_watchdogs_portal
+kat.sensors.sys_heartbeats_nm_kat_dc1             kat.sensors.sys_monitor_nm_kat_monctl             kat.sensors.sys_version                           kat.sensors.sys_watchdogs_rfe7
+kat.sensors.sys_heartbeats_nm_kat_monctl          kat.sensors.sys_monitor_nm_kat_ops                kat.sensors.sys_version_base_revision             kat.sensors.sys_watchdogs_sched
+kat.sensors.sys_heartbeats_nm_kat_ops             kat.sensors.sys_monitor_nm_kat_proxy              kat.sensors.sys_version_deployment_date           kat.sensors.sys_watchdogs_sys
+kat.sensors.sys_heartbeats_nm_kat_proxy           kat.sensors.sys_monitor_nm_kat_timeplot           kat.sensors.sys_version_previous
+kat.sensors.sys_heartbeats_nm_kat_timeplot        kat.sensors.sys_monitor_portal                    kat.sensors.sys_version_previous_base_revision
+kat.sensors.sys_heartbeats_portal                 kat.sensors.sys_monitor_rfe7                      kat.sensors.sys_version_previous_deployment_date
+
+
+Scheduler Sensors [ kat.sched (Proxy/Device);G ]
+-----------------
+In (27 logs; 27 unique) [23]: kat.sensors.sched_
+
+kat.sensors.sched_active_schedule       kat.sensors.sched_build_state           kat.sensors.sched_katobs_database_ok    kat.sensors.sched_observation_schedule  kat.sensors.sched_sys_connected
+kat.sensors.sched_address               kat.sensors.sched_exe_connected         kat.sensors.sched_mode                  kat.sensors.sched_pending_requests
+kat.sensors.sched_api_version           kat.sensors.sched_heartbeat             kat.sensors.sched_name                  kat.sensors.sched_start_time
+
+
+Executor Sensors [  kat.exe (Proxy/Device);G ]
+----------------
+In (27 logs; 27 unique) [23]: kat.sensors.exe 
+
+kat.sensors.exe_dryrun_task_states  kat.sensors.exe_katobs_database_ok  kat.sensors.exe_task_states
+
+
+Katstore  [ kat.katstore (Proxy/Device);G ]
+--------
+
+No sensors.
+
+
+Nodemanager Sensors
+-------------------
+In (27 logs; 27 unique) [30]: kat.sensors.nm_kat_dc1
+
+kat.sensors.nm_kat_dc1_all_ok                   kat.sensors.nm_kat_dc1_cas_filemgr_args         kat.sensors.nm_kat_dc1_k7aug_memory_rss         kat.sensors.nm_kat_dc1_k7capture_pid
+kat.sensors.nm_kat_dc1_api_version              kat.sensors.nm_kat_dc1_cas_filemgr_cpu          kat.sensors.nm_kat_dc1_k7aug_memory_vms         kat.sensors.nm_kat_dc1_k7capture_return_code
+kat.sensors.nm_kat_dc1_build_state              kat.sensors.nm_kat_dc1_cas_filemgr_memory_rss   kat.sensors.nm_kat_dc1_k7aug_ok                 kat.sensors.nm_kat_dc1_k7capture_running
+kat.sensors.nm_kat_dc1_cas_crawler_args         kat.sensors.nm_kat_dc1_cas_filemgr_memory_vms   kat.sensors.nm_kat_dc1_k7aug_pid                kat.sensors.nm_kat_dc1_katarchive_args
+kat.sensors.nm_kat_dc1_cas_crawler_cpu          kat.sensors.nm_kat_dc1_cas_filemgr_ok           kat.sensors.nm_kat_dc1_k7aug_return_code        kat.sensors.nm_kat_dc1_katarchive_cpu
+kat.sensors.nm_kat_dc1_cas_crawler_memory_rss   kat.sensors.nm_kat_dc1_cas_filemgr_pid          kat.sensors.nm_kat_dc1_k7aug_running            kat.sensors.nm_kat_dc1_katarchive_memory_rss
+kat.sensors.nm_kat_dc1_cas_crawler_memory_vms   kat.sensors.nm_kat_dc1_cas_filemgr_return_code  kat.sensors.nm_kat_dc1_k7capture_args           kat.sensors.nm_kat_dc1_katarchive_memory_vms
+kat.sensors.nm_kat_dc1_cas_crawler_ok           kat.sensors.nm_kat_dc1_cas_filemgr_running      kat.sensors.nm_kat_dc1_k7capture_cpu            kat.sensors.nm_kat_dc1_katarchive_ok
+kat.sensors.nm_kat_dc1_cas_crawler_pid          kat.sensors.nm_kat_dc1_heartbeat                kat.sensors.nm_kat_dc1_k7capture_memory_rss     kat.sensors.nm_kat_dc1_katarchive_pid
+kat.sensors.nm_kat_dc1_cas_crawler_return_code  kat.sensors.nm_kat_dc1_k7aug_args               kat.sensors.nm_kat_dc1_k7capture_memory_vms     kat.sensors.nm_kat_dc1_katarchive_return_code
+kat.sensors.nm_kat_dc1_cas_crawler_running      kat.sensors.nm_kat_dc1_k7aug_cpu                kat.sensors.nm_kat_dc1_k7capture_ok             kat.sensors.nm_kat_dc1_katarchive_running
+
+
+In (20 logs; 15 unique) [8]: kat.sensors.nm_kat_monctl
+
+kat.sensors.nm_kat_monctl_all_ok                      kat.sensors.nm_kat_monctl_katlogserver_running        kat.sensors.nm_kat_monctl_motion1_memory_rss          kat.sensors.nm_kat_monctl_sched_pid
+kat.sensors.nm_kat_monctl_api_version                 kat.sensors.nm_kat_monctl_katstore_args               kat.sensors.nm_kat_monctl_motion1_memory_vms          kat.sensors.nm_kat_monctl_sched_return_code
+kat.sensors.nm_kat_monctl_build_state                 kat.sensors.nm_kat_monctl_katstore_cpu                kat.sensors.nm_kat_monctl_motion1_ok                  kat.sensors.nm_kat_monctl_sched_running
+kat.sensors.nm_kat_monctl_heartbeat                   kat.sensors.nm_kat_monctl_katstore_memory_rss         kat.sensors.nm_kat_monctl_motion1_pid                 kat.sensors.nm_kat_monctl_sensorgraph_args
+kat.sensors.nm_kat_monctl_kataware_args               kat.sensors.nm_kat_monctl_katstore_memory_vms         kat.sensors.nm_kat_monctl_motion1_return_code         kat.sensors.nm_kat_monctl_sensorgraph_cpu
+kat.sensors.nm_kat_monctl_kataware_cpu                kat.sensors.nm_kat_monctl_katstore_ok                 kat.sensors.nm_kat_monctl_motion1_running             kat.sensors.nm_kat_monctl_sensorgraph_memory_rss
+kat.sensors.nm_kat_monctl_kataware_memory_rss         kat.sensors.nm_kat_monctl_katstore_pid                kat.sensors.nm_kat_monctl_motion2_args                kat.sensors.nm_kat_monctl_sensorgraph_memory_vms
+kat.sensors.nm_kat_monctl_kataware_memory_vms         kat.sensors.nm_kat_monctl_katstore_return_code        kat.sensors.nm_kat_monctl_motion2_cpu                 kat.sensors.nm_kat_monctl_sensorgraph_ok
+kat.sensors.nm_kat_monctl_kataware_ok                 kat.sensors.nm_kat_monctl_katstore_running            kat.sensors.nm_kat_monctl_motion2_memory_rss          kat.sensors.nm_kat_monctl_sensorgraph_pid
+kat.sensors.nm_kat_monctl_kataware_pid                kat.sensors.nm_kat_monctl_logmon_server_args          kat.sensors.nm_kat_monctl_motion2_memory_vms          kat.sensors.nm_kat_monctl_sensorgraph_return_code
+kat.sensors.nm_kat_monctl_kataware_return_code        kat.sensors.nm_kat_monctl_logmon_server_cpu           kat.sensors.nm_kat_monctl_motion2_ok                  kat.sensors.nm_kat_monctl_sensorgraph_running
+kat.sensors.nm_kat_monctl_kataware_running            kat.sensors.nm_kat_monctl_logmon_server_memory_rss    kat.sensors.nm_kat_monctl_motion2_pid                 kat.sensors.nm_kat_monctl_sys_args
+kat.sensors.nm_kat_monctl_katcpxmlrpc_args            kat.sensors.nm_kat_monctl_logmon_server_memory_vms    kat.sensors.nm_kat_monctl_motion2_return_code         kat.sensors.nm_kat_monctl_sys_cpu
+kat.sensors.nm_kat_monctl_katcpxmlrpc_cpu             kat.sensors.nm_kat_monctl_logmon_server_ok            kat.sensors.nm_kat_monctl_motion2_running             kat.sensors.nm_kat_monctl_sys_memory_rss
+kat.sensors.nm_kat_monctl_katcpxmlrpc_memory_rss      kat.sensors.nm_kat_monctl_logmon_server_pid           kat.sensors.nm_kat_monctl_portal_args                 kat.sensors.nm_kat_monctl_sys_memory_vms
+kat.sensors.nm_kat_monctl_katcpxmlrpc_memory_vms      kat.sensors.nm_kat_monctl_logmon_server_return_code   kat.sensors.nm_kat_monctl_portal_cpu                  kat.sensors.nm_kat_monctl_sys_ok
+kat.sensors.nm_kat_monctl_katcpxmlrpc_ok              kat.sensors.nm_kat_monctl_logmon_server_running       kat.sensors.nm_kat_monctl_portal_memory_rss           kat.sensors.nm_kat_monctl_sys_pid
+kat.sensors.nm_kat_monctl_katcpxmlrpc_pid             kat.sensors.nm_kat_monctl_mon_kat_monctl_args         kat.sensors.nm_kat_monctl_portal_memory_vms           kat.sensors.nm_kat_monctl_sys_return_code
+kat.sensors.nm_kat_monctl_katcpxmlrpc_return_code     kat.sensors.nm_kat_monctl_mon_kat_monctl_cpu          kat.sensors.nm_kat_monctl_portal_ok                   kat.sensors.nm_kat_monctl_sys_running
+kat.sensors.nm_kat_monctl_katcpxmlrpc_running         kat.sensors.nm_kat_monctl_mon_kat_monctl_memory_rss   kat.sensors.nm_kat_monctl_portal_pid                  kat.sensors.nm_kat_monctl_webportal_args
+kat.sensors.nm_kat_monctl_katlogserver_args           kat.sensors.nm_kat_monctl_mon_kat_monctl_memory_vms   kat.sensors.nm_kat_monctl_portal_return_code          kat.sensors.nm_kat_monctl_webportal_cpu
+kat.sensors.nm_kat_monctl_katlogserver_cpu            kat.sensors.nm_kat_monctl_mon_kat_monctl_ok           kat.sensors.nm_kat_monctl_portal_running              kat.sensors.nm_kat_monctl_webportal_memory_rss
+kat.sensors.nm_kat_monctl_katlogserver_memory_rss     kat.sensors.nm_kat_monctl_mon_kat_monctl_pid          kat.sensors.nm_kat_monctl_sched_args                  kat.sensors.nm_kat_monctl_webportal_memory_vms
+kat.sensors.nm_kat_monctl_katlogserver_memory_vms     kat.sensors.nm_kat_monctl_mon_kat_monctl_return_code  kat.sensors.nm_kat_monctl_sched_cpu                   kat.sensors.nm_kat_monctl_webportal_ok
+kat.sensors.nm_kat_monctl_katlogserver_ok             kat.sensors.nm_kat_monctl_mon_kat_monctl_running      kat.sensors.nm_kat_monctl_sched_memory_rss            kat.sensors.nm_kat_monctl_webportal_pid
+kat.sensors.nm_kat_monctl_katlogserver_pid            kat.sensors.nm_kat_monctl_motion1_args                kat.sensors.nm_kat_monctl_sched_memory_vms            kat.sensors.nm_kat_monctl_webportal_return_code
+kat.sensors.nm_kat_monctl_katlogserver_return_code    kat.sensors.nm_kat_monctl_motion1_cpu                 kat.sensors.nm_kat_monctl_sched_ok                    kat.sensors.nm_kat_monctl_webportal_running
+
+
+In (20 logs; 15 unique) [8]: kat.sensors.nm_kat_proxy
+
+kat.sensors.nm_kat_proxy_all_ok                     kat.sensors.nm_kat_proxy_ant4_args                  kat.sensors.nm_kat_proxy_asc_args                   kat.sensors.nm_kat_proxy_dbe7_args
+kat.sensors.nm_kat_proxy_anc_args                   kat.sensors.nm_kat_proxy_ant4_cpu                   kat.sensors.nm_kat_proxy_asc_cpu                    kat.sensors.nm_kat_proxy_dbe7_cpu
+kat.sensors.nm_kat_proxy_anc_cpu                    kat.sensors.nm_kat_proxy_ant4_memory_rss            kat.sensors.nm_kat_proxy_asc_memory_rss             kat.sensors.nm_kat_proxy_dbe7_memory_rss
+kat.sensors.nm_kat_proxy_anc_memory_rss             kat.sensors.nm_kat_proxy_ant4_memory_vms            kat.sensors.nm_kat_proxy_asc_memory_vms             kat.sensors.nm_kat_proxy_dbe7_memory_vms
+kat.sensors.nm_kat_proxy_anc_memory_vms             kat.sensors.nm_kat_proxy_ant4_ok                    kat.sensors.nm_kat_proxy_asc_ok                     kat.sensors.nm_kat_proxy_dbe7_ok
+kat.sensors.nm_kat_proxy_anc_ok                     kat.sensors.nm_kat_proxy_ant4_pid                   kat.sensors.nm_kat_proxy_asc_pid                    kat.sensors.nm_kat_proxy_dbe7_pid
+kat.sensors.nm_kat_proxy_anc_pid                    kat.sensors.nm_kat_proxy_ant4_return_code           kat.sensors.nm_kat_proxy_asc_return_code            kat.sensors.nm_kat_proxy_dbe7_return_code
+kat.sensors.nm_kat_proxy_anc_return_code            kat.sensors.nm_kat_proxy_ant4_running               kat.sensors.nm_kat_proxy_asc_running                kat.sensors.nm_kat_proxy_dbe7_running
+kat.sensors.nm_kat_proxy_anc_running                kat.sensors.nm_kat_proxy_ant5_args                  kat.sensors.nm_kat_proxy_asccombo_args              kat.sensors.nm_kat_proxy_ganglia_args
+kat.sensors.nm_kat_proxy_ant1_args                  kat.sensors.nm_kat_proxy_ant5_cpu                   kat.sensors.nm_kat_proxy_asccombo_cpu               kat.sensors.nm_kat_proxy_ganglia_cpu
+kat.sensors.nm_kat_proxy_ant1_cpu                   kat.sensors.nm_kat_proxy_ant5_memory_rss            kat.sensors.nm_kat_proxy_asccombo_memory_rss        kat.sensors.nm_kat_proxy_ganglia_memory_rss
+kat.sensors.nm_kat_proxy_ant1_memory_rss            kat.sensors.nm_kat_proxy_ant5_memory_vms            kat.sensors.nm_kat_proxy_asccombo_memory_vms        kat.sensors.nm_kat_proxy_ganglia_memory_vms
+kat.sensors.nm_kat_proxy_ant1_memory_vms            kat.sensors.nm_kat_proxy_ant5_ok                    kat.sensors.nm_kat_proxy_asccombo_ok                kat.sensors.nm_kat_proxy_ganglia_ok
+kat.sensors.nm_kat_proxy_ant1_ok                    kat.sensors.nm_kat_proxy_ant5_pid                   kat.sensors.nm_kat_proxy_asccombo_pid               kat.sensors.nm_kat_proxy_ganglia_pid
+kat.sensors.nm_kat_proxy_ant1_pid                   kat.sensors.nm_kat_proxy_ant5_return_code           kat.sensors.nm_kat_proxy_asccombo_return_code       kat.sensors.nm_kat_proxy_ganglia_return_code
+kat.sensors.nm_kat_proxy_ant1_return_code           kat.sensors.nm_kat_proxy_ant5_running               kat.sensors.nm_kat_proxy_asccombo_running           kat.sensors.nm_kat_proxy_ganglia_running
+kat.sensors.nm_kat_proxy_ant1_running               kat.sensors.nm_kat_proxy_ant6_args                  kat.sensors.nm_kat_proxy_build_state                kat.sensors.nm_kat_proxy_heartbeat
+kat.sensors.nm_kat_proxy_ant2_args                  kat.sensors.nm_kat_proxy_ant6_cpu                   kat.sensors.nm_kat_proxy_cc_args                    kat.sensors.nm_kat_proxy_mon_kat_proxy_args
+kat.sensors.nm_kat_proxy_ant2_cpu                   kat.sensors.nm_kat_proxy_ant6_memory_rss            kat.sensors.nm_kat_proxy_cc_cpu                     kat.sensors.nm_kat_proxy_mon_kat_proxy_cpu
+kat.sensors.nm_kat_proxy_ant2_memory_rss            kat.sensors.nm_kat_proxy_ant6_memory_vms            kat.sensors.nm_kat_proxy_cc_memory_rss              kat.sensors.nm_kat_proxy_mon_kat_proxy_memory_rss
+kat.sensors.nm_kat_proxy_ant2_memory_vms            kat.sensors.nm_kat_proxy_ant6_ok                    kat.sensors.nm_kat_proxy_cc_memory_vms              kat.sensors.nm_kat_proxy_mon_kat_proxy_memory_vms
+kat.sensors.nm_kat_proxy_ant2_ok                    kat.sensors.nm_kat_proxy_ant6_pid                   kat.sensors.nm_kat_proxy_cc_ok                      kat.sensors.nm_kat_proxy_mon_kat_proxy_ok
+kat.sensors.nm_kat_proxy_ant2_pid                   kat.sensors.nm_kat_proxy_ant6_return_code           kat.sensors.nm_kat_proxy_cc_pid                     kat.sensors.nm_kat_proxy_mon_kat_proxy_pid
+kat.sensors.nm_kat_proxy_ant2_return_code           kat.sensors.nm_kat_proxy_ant6_running               kat.sensors.nm_kat_proxy_cc_return_code             kat.sensors.nm_kat_proxy_mon_kat_proxy_return_code
+kat.sensors.nm_kat_proxy_ant2_running               kat.sensors.nm_kat_proxy_ant7_args                  kat.sensors.nm_kat_proxy_cc_running                 kat.sensors.nm_kat_proxy_mon_kat_proxy_running
+kat.sensors.nm_kat_proxy_ant3_args                  kat.sensors.nm_kat_proxy_ant7_cpu                   kat.sensors.nm_kat_proxy_cmc_args                   kat.sensors.nm_kat_proxy_rfe7_args
+kat.sensors.nm_kat_proxy_ant3_cpu                   kat.sensors.nm_kat_proxy_ant7_memory_rss            kat.sensors.nm_kat_proxy_cmc_cpu                    kat.sensors.nm_kat_proxy_rfe7_cpu
+kat.sensors.nm_kat_proxy_ant3_memory_rss            kat.sensors.nm_kat_proxy_ant7_memory_vms            kat.sensors.nm_kat_proxy_cmc_memory_rss             kat.sensors.nm_kat_proxy_rfe7_memory_rss
+kat.sensors.nm_kat_proxy_ant3_memory_vms            kat.sensors.nm_kat_proxy_ant7_ok                    kat.sensors.nm_kat_proxy_cmc_memory_vms             kat.sensors.nm_kat_proxy_rfe7_memory_vms
+kat.sensors.nm_kat_proxy_ant3_ok                    kat.sensors.nm_kat_proxy_ant7_pid                   kat.sensors.nm_kat_proxy_cmc_ok                     kat.sensors.nm_kat_proxy_rfe7_ok
+kat.sensors.nm_kat_proxy_ant3_pid                   kat.sensors.nm_kat_proxy_ant7_return_code           kat.sensors.nm_kat_proxy_cmc_pid                    kat.sensors.nm_kat_proxy_rfe7_pid
+kat.sensors.nm_kat_proxy_ant3_return_code           kat.sensors.nm_kat_proxy_ant7_running               kat.sensors.nm_kat_proxy_cmc_return_code            kat.sensors.nm_kat_proxy_rfe7_return_code
+kat.sensors.nm_kat_proxy_ant3_running               kat.sensors.nm_kat_proxy_api_version                kat.sensors.nm_kat_proxy_cmc_running                kat.sensors.nm_kat_proxy_rfe7_running
+
+
+In (27 logs; 27 unique) [41]: kat.sensors.nm_kat_ops
+
+kat.sensors.nm_kat_ops_all_ok                       kat.sensors.nm_kat_ops_heartbeat                    kat.sensors.nm_kat_ops_katstore_ops_memory_rss      kat.sensors.nm_kat_ops_mon_kat_ops_pid
+kat.sensors.nm_kat_ops_api_version                  kat.sensors.nm_kat_ops_katobsportal_args            kat.sensors.nm_kat_ops_katstore_ops_memory_vms      kat.sensors.nm_kat_ops_mon_kat_ops_return_code
+kat.sensors.nm_kat_ops_build_state                  kat.sensors.nm_kat_ops_katobsportal_cpu             kat.sensors.nm_kat_ops_katstore_ops_ok              kat.sensors.nm_kat_ops_mon_kat_ops_running
+kat.sensors.nm_kat_ops_exe_args                     kat.sensors.nm_kat_ops_katobsportal_memory_rss      kat.sensors.nm_kat_ops_katstore_ops_pid             kat.sensors.nm_kat_ops_sensorgraph_ops_args
+kat.sensors.nm_kat_ops_exe_cpu                      kat.sensors.nm_kat_ops_katobsportal_memory_vms      kat.sensors.nm_kat_ops_katstore_ops_return_code     kat.sensors.nm_kat_ops_sensorgraph_ops_cpu
+kat.sensors.nm_kat_ops_exe_memory_rss               kat.sensors.nm_kat_ops_katobsportal_ok              kat.sensors.nm_kat_ops_katstore_ops_running         kat.sensors.nm_kat_ops_sensorgraph_ops_memory_rss
+kat.sensors.nm_kat_ops_exe_memory_vms               kat.sensors.nm_kat_ops_katobsportal_pid             kat.sensors.nm_kat_ops_mon_kat_ops_args             kat.sensors.nm_kat_ops_sensorgraph_ops_memory_vms
+kat.sensors.nm_kat_ops_exe_ok                       kat.sensors.nm_kat_ops_katobsportal_return_code     kat.sensors.nm_kat_ops_mon_kat_ops_cpu              kat.sensors.nm_kat_ops_sensorgraph_ops_ok
+kat.sensors.nm_kat_ops_exe_pid                      kat.sensors.nm_kat_ops_katobsportal_running         kat.sensors.nm_kat_ops_mon_kat_ops_memory_rss       kat.sensors.nm_kat_ops_sensorgraph_ops_pid
+kat.sensors.nm_kat_ops_exe_return_code              kat.sensors.nm_kat_ops_katstore_ops_args            kat.sensors.nm_kat_ops_mon_kat_ops_memory_vms       kat.sensors.nm_kat_ops_sensorgraph_ops_return_code
+kat.sensors.nm_kat_ops_exe_running                  kat.sensors.nm_kat_ops_katstore_ops_cpu             kat.sensors.nm_kat_ops_mon_kat_ops_ok               kat.sensors.nm_kat_ops_sensorgraph_ops_running
+
+
+In (27 logs; 27 unique) [41]: kat.sensors.nm_kat_timeplot_
+
+kat.sensors.nm_kat_timeplot_all_ok                 kat.sensors.nm_kat_timeplot_heartbeat              kat.sensors.nm_kat_timeplot_time_plot_memory_rss   kat.sensors.nm_kat_timeplot_time_plot_pid
+kat.sensors.nm_kat_timeplot_api_version            kat.sensors.nm_kat_timeplot_time_plot_args         kat.sensors.nm_kat_timeplot_time_plot_memory_vms   kat.sensors.nm_kat_timeplot_time_plot_return_code
+kat.sensors.nm_kat_timeplot_build_state            kat.sensors.nm_kat_timeplot_time_plot_cpu          kat.sensors.nm_kat_timeplot_time_plot_ok           kat.sensors.nm_kat_timeplot_time_plot_running
+
+
+mon_kat_monctl Sensors
+----------------------
+Includes monitoring and aggregate sensors.
+
+In (27 logs; 27 unique) [41]: kat.sensors.mon_kat_monctl
+
+kat.sensors.mon_kat_monctl_api_version                kat.sensors.mon_kat_monctl_mon_kat_monctl_connected   kat.sensors.mon_kat_monctl_portal_connected           kat.sensors.mon_kat_monctl_storage_store_exists
+kat.sensors.mon_kat_monctl_build_state                kat.sensors.mon_kat_monctl_monitored_components       kat.sensors.mon_kat_monctl_sched_connected            kat.sensors.mon_kat_monctl_sys_connected
+kat.sensors.mon_kat_monctl_comms_ok                   kat.sensors.mon_kat_monctl_name                       kat.sensors.mon_kat_monctl_sensors_ok                 kat.sensors.mon_kat_monctl_type
+kat.sensors.mon_kat_monctl_heartbeat                  kat.sensors.mon_kat_monctl_nm_kat_dc1_connected       kat.sensors.mon_kat_monctl_storage_qrate_receive
+kat.sensors.mon_kat_monctl_kataware_connected         kat.sensors.mon_kat_monctl_nm_kat_monctl_connected    kat.sensors.mon_kat_monctl_storage_qrate_write
+kat.sensors.mon_kat_monctl_launch_connected           kat.sensors.mon_kat_monctl_nm_kat_timeplot_connected  kat.sensors.mon_kat_monctl_storage_qsize
+
+
+
+In (27 logs; 27 unique) [42]: kat.mon_kat_monctl.sensor.
+
+kat.mon_kat_monctl.sensor.__class__                  kat.mon_kat_monctl.sensor.__reduce_ex__              kat.mon_kat_monctl.sensor.comms_ok                   kat.mon_kat_monctl.sensor.put
+kat.mon_kat_monctl.sensor.__contains__               kat.mon_kat_monctl.sensor.__repr__                   kat.mon_kat_monctl.sensor.get                        kat.mon_kat_monctl.sensor.sched_connected
+kat.mon_kat_monctl.sensor.__delattr__                kat.mon_kat_monctl.sensor.__setattr__                kat.mon_kat_monctl.sensor.heartbeat                  kat.mon_kat_monctl.sensor.sensors_ok
+kat.mon_kat_monctl.sensor.__dict__                   kat.mon_kat_monctl.sensor.__sizeof__                 kat.mon_kat_monctl.sensor.kataware_connected         kat.mon_kat_monctl.sensor.sorted_values
+kat.mon_kat_monctl.sensor.__doc__                    kat.mon_kat_monctl.sensor.__str__                    kat.mon_kat_monctl.sensor.launch_connected           kat.mon_kat_monctl.sensor.storage_qrate_receive
+kat.mon_kat_monctl.sensor.__format__                 kat.mon_kat_monctl.sensor.__subclasshook__           kat.mon_kat_monctl.sensor.mon_kat_monctl_connected   kat.mon_kat_monctl.sensor.storage_qrate_write
+kat.mon_kat_monctl.sensor.__getattr__                kat.mon_kat_monctl.sensor.__weakref__                kat.mon_kat_monctl.sensor.monitored_components       kat.mon_kat_monctl.sensor.storage_qsize
+kat.mon_kat_monctl.sensor.__getattribute__           kat.mon_kat_monctl.sensor._error_msg                 kat.mon_kat_monctl.sensor.name                       kat.mon_kat_monctl.sensor.storage_store_exists
+kat.mon_kat_monctl.sensor.__hash__                   kat.mon_kat_monctl.sensor.agg_sys_monitors_ok        kat.mon_kat_monctl.sensor.nm_kat_dc1_connected       kat.mon_kat_monctl.sensor.sys_connected
+kat.mon_kat_monctl.sensor.__init__                   kat.mon_kat_monctl.sensor.agg_sys_nodemanagers_ok    kat.mon_kat_monctl.sensor.nm_kat_monctl_connected    kat.mon_kat_monctl.sensor.type
+kat.mon_kat_monctl.sensor.__module__                 kat.mon_kat_monctl.sensor.api_version                kat.mon_kat_monctl.sensor.nm_kat_timeplot_connected
+kat.mon_kat_monctl.sensor.__new__                    kat.mon_kat_monctl.sensor.build_state                kat.mon_kat_monctl.sensor.pop
+kat.mon_kat_monctl.sensor.__reduce__                 kat.mon_kat_monctl.sensor.children                   kat.mon_kat_monctl.sensor.portal_connected
+
+
+mon_kat_proxy Sensors
+---------------------
+Includes monitoring and aggregate sensors.
+
+In (27 logs; 27 unique) [42]: kat.sensors.mon_kat_proxy
+
+kat.sensors.mon_kat_proxy_anc_connected            kat.sensors.mon_kat_proxy_ant6_connected           kat.sensors.mon_kat_proxy_heartbeat                kat.sensors.mon_kat_proxy_sensors_ok
+kat.sensors.mon_kat_proxy_ant1_connected           kat.sensors.mon_kat_proxy_ant7_connected           kat.sensors.mon_kat_proxy_mon_kat_proxy_connected  kat.sensors.mon_kat_proxy_storage_qrate_receive
+kat.sensors.mon_kat_proxy_ant2_connected           kat.sensors.mon_kat_proxy_api_version              kat.sensors.mon_kat_proxy_monitored_components     kat.sensors.mon_kat_proxy_storage_qrate_write
+kat.sensors.mon_kat_proxy_ant3_connected           kat.sensors.mon_kat_proxy_build_state              kat.sensors.mon_kat_proxy_name                     kat.sensors.mon_kat_proxy_storage_qsize
+kat.sensors.mon_kat_proxy_ant4_connected           kat.sensors.mon_kat_proxy_comms_ok                 kat.sensors.mon_kat_proxy_nm_kat_proxy_connected   kat.sensors.mon_kat_proxy_storage_store_exists
+kat.sensors.mon_kat_proxy_ant5_connected           kat.sensors.mon_kat_proxy_dbe7_connected           kat.sensors.mon_kat_proxy_rfe7_connected           kat.sensors.mon_kat_proxy_type
+
+
+In (27 logs; 27 unique) [42]: kat.mon_kat_proxy.sensor.
+
+kat.mon_kat_proxy.sensor.__class__                                          kat.mon_kat_proxy.sensor.agg_ant3_chiller_temperature_ok                    kat.mon_kat_proxy.sensor.agg_ant6_cryo_omt_temperature_ok
+kat.mon_kat_proxy.sensor.__contains__                                       kat.mon_kat_proxy.sensor.agg_ant3_chiller_water_level_ok                    kat.mon_kat_proxy.sensor.agg_ant6_cryo_vacuum_not_broken
+kat.mon_kat_proxy.sensor.__delattr__                                        kat.mon_kat_proxy.sensor.agg_ant3_controller_on                             kat.mon_kat_proxy.sensor.agg_ant6_cryo_vacuum_ok
+kat.mon_kat_proxy.sensor.__dict__                                           kat.mon_kat_proxy.sensor.agg_ant3_cryo_15v_ok                               kat.mon_kat_proxy.sensor.agg_ant6_enviro_comms_ok
+kat.mon_kat_proxy.sensor.__doc__                                            kat.mon_kat_proxy.sensor.agg_ant3_cryo_48V_ok                               kat.mon_kat_proxy.sensor.agg_ant6_in_scan
+kat.mon_kat_proxy.sensor.__format__                                         kat.mon_kat_proxy.sensor.agg_ant3_cryo_cooling_fans_ok                      kat.mon_kat_proxy.sensor.agg_ant6_lock
+kat.mon_kat_proxy.sensor.__getattr__                                        kat.mon_kat_proxy.sensor.agg_ant3_cryo_cryotel_cooling_ok                   kat.mon_kat_proxy.sensor.agg_ant6_mode_not_error
+kat.mon_kat_proxy.sensor.__getattribute__                                   kat.mon_kat_proxy.sensor.agg_ant3_cryo_cryotel_on                           kat.mon_kat_proxy.sensor.agg_ant6_no_hard_stops
+kat.mon_kat_proxy.sensor.__hash__                                           kat.mon_kat_proxy.sensor.agg_ant3_cryo_device_connected                     kat.mon_kat_proxy.sensor.agg_ant6_no_wind_stow
+kat.mon_kat_proxy.sensor.__init__                                           kat.mon_kat_proxy.sensor.agg_ant3_cryo_device_synced                        kat.mon_kat_proxy.sensor.agg_ant6_not_estop
+kat.mon_kat_proxy.sensor.__module__                                         kat.mon_kat_proxy.sensor.agg_ant3_cryo_fuse_ok                              kat.mon_kat_proxy.sensor.agg_ant6_pedestal_comms_ok
+kat.mon_kat_proxy.sensor.__new__                                            kat.mon_kat_proxy.sensor.agg_ant3_cryo_ionpump_on                           kat.mon_kat_proxy.sensor.agg_ant6_proxy_device_comms_ok
+kat.mon_kat_proxy.sensor.__reduce__                                         kat.mon_kat_proxy.sensor.agg_ant3_cryo_ionpump_pressure_ok                  kat.mon_kat_proxy.sensor.agg_ant6_rfe15_psu_ok
+kat.mon_kat_proxy.sensor.__reduce_ex__                                      kat.mon_kat_proxy.sensor.agg_ant3_cryo_lna_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant6_rfe15_temp_ok
+kat.mon_kat_proxy.sensor.__repr__                                           kat.mon_kat_proxy.sensor.agg_ant3_cryo_no_water_leak                        kat.mon_kat_proxy.sensor.agg_ant6_rfe3_psu_ok
+kat.mon_kat_proxy.sensor.__setattr__                                        kat.mon_kat_proxy.sensor.agg_ant3_cryo_omt_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant6_rfe3_temp_ok
+kat.mon_kat_proxy.sensor.__sizeof__                                         kat.mon_kat_proxy.sensor.agg_ant3_cryo_vacuum_not_broken                    kat.mon_kat_proxy.sensor.agg_ant6_rfe5_psu_ok
+kat.mon_kat_proxy.sensor.__str__                                            kat.mon_kat_proxy.sensor.agg_ant3_cryo_vacuum_ok                            kat.mon_kat_proxy.sensor.agg_ant6_rfe5_temp_ok
+kat.mon_kat_proxy.sensor.__subclasshook__                                   kat.mon_kat_proxy.sensor.agg_ant3_enviro_comms_ok                           kat.mon_kat_proxy.sensor.agg_ant6_rfe6_no_laser_alarm
+kat.mon_kat_proxy.sensor.__weakref__                                        kat.mon_kat_proxy.sensor.agg_ant3_in_scan                                   kat.mon_kat_proxy.sensor.agg_ant6_rfe6_no_rf_alarm
+kat.mon_kat_proxy.sensor._error_msg                                         kat.mon_kat_proxy.sensor.agg_ant3_lock                                      kat.mon_kat_proxy.sensor.agg_ant6_rfe6_temp_ok
+kat.mon_kat_proxy.sensor.agg_anc_asc_air_temperature_ok                     kat.mon_kat_proxy.sensor.agg_ant3_mode_not_error                            kat.mon_kat_proxy.sensor.agg_ant6_stow
+kat.mon_kat_proxy.sensor.agg_anc_asc_chiller_ok                             kat.mon_kat_proxy.sensor.agg_ant3_no_hard_stops                             kat.mon_kat_proxy.sensor.agg_ant6_timing_ok
+kat.mon_kat_proxy.sensor.agg_anc_asc_cooling_temperature_ok                 kat.mon_kat_proxy.sensor.agg_ant3_no_wind_stow                              kat.mon_kat_proxy.sensor.agg_ant6_wind_reporting_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_air_temperature_ok                      kat.mon_kat_proxy.sensor.agg_ant3_not_estop                                 kat.mon_kat_proxy.sensor.agg_ant7_acu_timing_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_chiller_ok                              kat.mon_kat_proxy.sensor.agg_ant3_pedestal_comms_ok                         kat.mon_kat_proxy.sensor.agg_ant7_antenna_comms_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_cooling_temperature_ok                  kat.mon_kat_proxy.sensor.agg_ant3_proxy_device_comms_ok                     kat.mon_kat_proxy.sensor.agg_ant7_bms_device_comms_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_tcu_water_level_not_low                 kat.mon_kat_proxy.sensor.agg_ant3_rfe15_psu_ok                              kat.mon_kat_proxy.sensor.agg_ant7_bms_gps_ntp_clock_adjust_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_tcu_water_level_not_warn                kat.mon_kat_proxy.sensor.agg_ant3_rfe15_temp_ok                             kat.mon_kat_proxy.sensor.agg_ant7_bms_gps_num_sat_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_tcu_water_temperature_ok                kat.mon_kat_proxy.sensor.agg_ant3_rfe3_psu_ok                               kat.mon_kat_proxy.sensor.agg_ant7_bms_gps_time_drift_ok
+kat.mon_kat_proxy.sensor.agg_anc_cc_ups_ok                                  kat.mon_kat_proxy.sensor.agg_ant3_rfe3_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant7_bms_gps_timing_ok
+kat.mon_kat_proxy.sensor.agg_anc_cmc_air_temperature_ok                     kat.mon_kat_proxy.sensor.agg_ant3_rfe5_psu_ok                               kat.mon_kat_proxy.sensor.agg_ant7_bms_no_fire
+kat.mon_kat_proxy.sensor.agg_anc_cmc_cooling_temperature_ok                 kat.mon_kat_proxy.sensor.agg_ant3_rfe5_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant7_bms_no_intrusion
+kat.mon_kat_proxy.sensor.agg_anc_css_cpu_usage_ok                           kat.mon_kat_proxy.sensor.agg_ant3_rfe6_no_laser_alarm                       kat.mon_kat_proxy.sensor.agg_ant7_bms_ntp_timing_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_disk_space_ok                          kat.mon_kat_proxy.sensor.agg_ant3_rfe6_no_rf_alarm                          kat.mon_kat_proxy.sensor.agg_ant7_chiller_not_tripped
+kat.mon_kat_proxy.sensor.agg_anc_css_latest_sources_committed               kat.mon_kat_proxy.sensor.agg_ant3_rfe6_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant7_chiller_system_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_memory_usage_ok                        kat.mon_kat_proxy.sensor.agg_ant3_stow                                      kat.mon_kat_proxy.sensor.agg_ant7_chiller_temperature_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_ntp_offset                             kat.mon_kat_proxy.sensor.agg_ant3_timing_ok                                 kat.mon_kat_proxy.sensor.agg_ant7_chiller_water_level_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_ntp_synch                              kat.mon_kat_proxy.sensor.agg_ant3_wind_reporting_ok                         kat.mon_kat_proxy.sensor.agg_ant7_controller_on
+kat.mon_kat_proxy.sensor.agg_anc_css_sources_current                        kat.mon_kat_proxy.sensor.agg_ant4_acu_timing_ok                             kat.mon_kat_proxy.sensor.agg_ant7_cryo_15v_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_sources_uptodate                       kat.mon_kat_proxy.sensor.agg_ant4_antenna_comms_ok                          kat.mon_kat_proxy.sensor.agg_ant7_cryo_48V_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_tle_current                            kat.mon_kat_proxy.sensor.agg_ant4_bms_device_comms_ok                       kat.mon_kat_proxy.sensor.agg_ant7_cryo_cooling_fans_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_ut1_current                            kat.mon_kat_proxy.sensor.agg_ant4_bms_gps_ntp_clock_adjust_ok               kat.mon_kat_proxy.sensor.agg_ant7_cryo_cryotel_cooling_ok
+kat.mon_kat_proxy.sensor.agg_anc_css_varkatconfig_all_committed             kat.mon_kat_proxy.sensor.agg_ant4_bms_gps_num_sat_ok                        kat.mon_kat_proxy.sensor.agg_ant7_cryo_cryotel_on
+kat.mon_kat_proxy.sensor.agg_anc_css_varkatconfig_uptodate                  kat.mon_kat_proxy.sensor.agg_ant4_bms_gps_time_drift_ok                     kat.mon_kat_proxy.sensor.agg_ant7_cryo_device_connected
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_asc_comms_ok                  kat.mon_kat_proxy.sensor.agg_ant4_bms_gps_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant7_cryo_device_synced
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_asccombo_comms_ok             kat.mon_kat_proxy.sensor.agg_ant4_bms_no_fire                               kat.mon_kat_proxy.sensor.agg_ant7_cryo_fuse_ok
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_cc_comms_ok                   kat.mon_kat_proxy.sensor.agg_ant4_bms_no_intrusion                          kat.mon_kat_proxy.sensor.agg_ant7_cryo_ionpump_on
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_cmc_comms_ok                  kat.mon_kat_proxy.sensor.agg_ant4_bms_ntp_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant7_cryo_ionpump_pressure_ok
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_comms_ok                      kat.mon_kat_proxy.sensor.agg_ant4_chiller_not_tripped                       kat.mon_kat_proxy.sensor.agg_ant7_cryo_lna_temperature_ok
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_ganglia_comms_ok              kat.mon_kat_proxy.sensor.agg_ant4_chiller_system_ok                         kat.mon_kat_proxy.sensor.agg_ant7_cryo_no_water_leak
+kat.mon_kat_proxy.sensor.agg_anc_proxy_device_tfr_comms_ok                  kat.mon_kat_proxy.sensor.agg_ant4_chiller_temperature_ok                    kat.mon_kat_proxy.sensor.agg_ant7_cryo_omt_temperature_ok
+kat.mon_kat_proxy.sensor.agg_anc_tfr_time_synced                            kat.mon_kat_proxy.sensor.agg_ant4_chiller_water_level_ok                    kat.mon_kat_proxy.sensor.agg_ant7_cryo_vacuum_not_broken
+kat.mon_kat_proxy.sensor.agg_anc_wind_reporting_ok                          kat.mon_kat_proxy.sensor.agg_ant4_controller_on                             kat.mon_kat_proxy.sensor.agg_ant7_cryo_vacuum_ok
+kat.mon_kat_proxy.sensor.agg_ant1_acu_timing_ok                             kat.mon_kat_proxy.sensor.agg_ant4_cryo_15v_ok                               kat.mon_kat_proxy.sensor.agg_ant7_enviro_comms_ok
+kat.mon_kat_proxy.sensor.agg_ant1_antenna_comms_ok                          kat.mon_kat_proxy.sensor.agg_ant4_cryo_48V_ok                               kat.mon_kat_proxy.sensor.agg_ant7_in_scan
+kat.mon_kat_proxy.sensor.agg_ant1_bms_device_comms_ok                       kat.mon_kat_proxy.sensor.agg_ant4_cryo_cooling_fans_ok                      kat.mon_kat_proxy.sensor.agg_ant7_lock
+kat.mon_kat_proxy.sensor.agg_ant1_bms_gps_ntp_clock_adjust_ok               kat.mon_kat_proxy.sensor.agg_ant4_cryo_cryotel_cooling_ok                   kat.mon_kat_proxy.sensor.agg_ant7_mode_not_error
+kat.mon_kat_proxy.sensor.agg_ant1_bms_gps_num_sat_ok                        kat.mon_kat_proxy.sensor.agg_ant4_cryo_cryotel_on                           kat.mon_kat_proxy.sensor.agg_ant7_no_hard_stops
+kat.mon_kat_proxy.sensor.agg_ant1_bms_gps_time_drift_ok                     kat.mon_kat_proxy.sensor.agg_ant4_cryo_device_connected                     kat.mon_kat_proxy.sensor.agg_ant7_no_wind_stow
+kat.mon_kat_proxy.sensor.agg_ant1_bms_gps_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant4_cryo_device_synced                        kat.mon_kat_proxy.sensor.agg_ant7_not_estop
+kat.mon_kat_proxy.sensor.agg_ant1_bms_no_fire                               kat.mon_kat_proxy.sensor.agg_ant4_cryo_fuse_ok                              kat.mon_kat_proxy.sensor.agg_ant7_pedestal_comms_ok
+kat.mon_kat_proxy.sensor.agg_ant1_bms_no_intrusion                          kat.mon_kat_proxy.sensor.agg_ant4_cryo_ionpump_on                           kat.mon_kat_proxy.sensor.agg_ant7_proxy_device_comms_ok
+kat.mon_kat_proxy.sensor.agg_ant1_bms_ntp_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant4_cryo_ionpump_pressure_ok                  kat.mon_kat_proxy.sensor.agg_ant7_rfe15_psu_ok
+kat.mon_kat_proxy.sensor.agg_ant1_chiller_not_tripped                       kat.mon_kat_proxy.sensor.agg_ant4_cryo_lna_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant7_rfe15_temp_ok
+kat.mon_kat_proxy.sensor.agg_ant1_chiller_system_ok                         kat.mon_kat_proxy.sensor.agg_ant4_cryo_no_water_leak                        kat.mon_kat_proxy.sensor.agg_ant7_rfe3_psu_ok
+kat.mon_kat_proxy.sensor.agg_ant1_chiller_temperature_ok                    kat.mon_kat_proxy.sensor.agg_ant4_cryo_omt_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant7_rfe3_temp_ok
+kat.mon_kat_proxy.sensor.agg_ant1_chiller_water_level_ok                    kat.mon_kat_proxy.sensor.agg_ant4_cryo_vacuum_not_broken                    kat.mon_kat_proxy.sensor.agg_ant7_rfe5_psu_ok
+kat.mon_kat_proxy.sensor.agg_ant1_controller_on                             kat.mon_kat_proxy.sensor.agg_ant4_cryo_vacuum_ok                            kat.mon_kat_proxy.sensor.agg_ant7_rfe5_temp_ok
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_15v_ok                               kat.mon_kat_proxy.sensor.agg_ant4_enviro_comms_ok                           kat.mon_kat_proxy.sensor.agg_ant7_rfe6_no_laser_alarm
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_48V_ok                               kat.mon_kat_proxy.sensor.agg_ant4_in_scan                                   kat.mon_kat_proxy.sensor.agg_ant7_rfe6_no_rf_alarm
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_cooling_fans_ok                      kat.mon_kat_proxy.sensor.agg_ant4_lock                                      kat.mon_kat_proxy.sensor.agg_ant7_rfe6_temp_ok
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_cryotel_cooling_ok                   kat.mon_kat_proxy.sensor.agg_ant4_mode_not_error                            kat.mon_kat_proxy.sensor.agg_ant7_stow
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_cryotel_on                           kat.mon_kat_proxy.sensor.agg_ant4_no_hard_stops                             kat.mon_kat_proxy.sensor.agg_ant7_timing_ok
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_device_connected                     kat.mon_kat_proxy.sensor.agg_ant4_no_wind_stow                              kat.mon_kat_proxy.sensor.agg_ant7_wind_reporting_ok
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_device_synced                        kat.mon_kat_proxy.sensor.agg_ant4_not_estop                                 kat.mon_kat_proxy.sensor.agg_dbe7_no_adc_overrange
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_fuse_ok                              kat.mon_kat_proxy.sensor.agg_ant4_pedestal_comms_ok                         kat.mon_kat_proxy.sensor.agg_dbe7_no_adc_terminated
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_ionpump_on                           kat.mon_kat_proxy.sensor.agg_ant4_proxy_device_comms_ok                     kat.mon_kat_proxy.sensor.agg_dbe7_no_fft_overrange
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_ionpump_pressure_ok                  kat.mon_kat_proxy.sensor.agg_ant4_rfe15_psu_ok                              kat.mon_kat_proxy.sensor.agg_dbe7_proxy_device_comms_ok
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_lna_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant4_rfe15_temp_ok                             kat.mon_kat_proxy.sensor.agg_dbe7_time_synced
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_no_water_leak                        kat.mon_kat_proxy.sensor.agg_ant4_rfe3_psu_ok                               kat.mon_kat_proxy.sensor.agg_motion1_health
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_omt_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant4_rfe3_temp_ok                              kat.mon_kat_proxy.sensor.agg_motion2_health
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_vacuum_not_broken                    kat.mon_kat_proxy.sensor.agg_ant4_rfe5_psu_ok                               kat.mon_kat_proxy.sensor.agg_motion3_health
+kat.mon_kat_proxy.sensor.agg_ant1_cryo_vacuum_ok                            kat.mon_kat_proxy.sensor.agg_ant4_rfe5_temp_ok                              kat.mon_kat_proxy.sensor.agg_motion4_health
+kat.mon_kat_proxy.sensor.agg_ant1_enviro_comms_ok                           kat.mon_kat_proxy.sensor.agg_ant4_rfe6_no_laser_alarm                       kat.mon_kat_proxy.sensor.agg_motion5_health
+kat.mon_kat_proxy.sensor.agg_ant1_in_scan                                   kat.mon_kat_proxy.sensor.agg_ant4_rfe6_no_rf_alarm                          kat.mon_kat_proxy.sensor.agg_motion6_health
+kat.mon_kat_proxy.sensor.agg_ant1_lock                                      kat.mon_kat_proxy.sensor.agg_ant4_rfe6_temp_ok                              kat.mon_kat_proxy.sensor.agg_motion7_health
+kat.mon_kat_proxy.sensor.agg_ant1_mode_not_error                            kat.mon_kat_proxy.sensor.agg_ant4_stow                                      kat.mon_kat_proxy.sensor.agg_rfe7_ant1_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_no_hard_stops                             kat.mon_kat_proxy.sensor.agg_ant4_timing_ok                                 kat.mon_kat_proxy.sensor.agg_rfe7_ant2_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_no_wind_stow                              kat.mon_kat_proxy.sensor.agg_ant4_wind_reporting_ok                         kat.mon_kat_proxy.sensor.agg_rfe7_ant3_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_not_estop                                 kat.mon_kat_proxy.sensor.agg_ant5_acu_timing_ok                             kat.mon_kat_proxy.sensor.agg_rfe7_ant4_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_pedestal_comms_ok                         kat.mon_kat_proxy.sensor.agg_ant5_antenna_comms_ok                          kat.mon_kat_proxy.sensor.agg_rfe7_ant5_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_proxy_device_comms_ok                     kat.mon_kat_proxy.sensor.agg_ant5_bms_device_comms_ok                       kat.mon_kat_proxy.sensor.agg_rfe7_ant6_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe15_psu_ok                              kat.mon_kat_proxy.sensor.agg_ant5_bms_gps_ntp_clock_adjust_ok               kat.mon_kat_proxy.sensor.agg_rfe7_ant7_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe15_temp_ok                             kat.mon_kat_proxy.sensor.agg_ant5_bms_gps_num_sat_ok                        kat.mon_kat_proxy.sensor.agg_rfe7_cam_fpga_states_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe3_psu_ok                               kat.mon_kat_proxy.sensor.agg_ant5_bms_gps_time_drift_ok                     kat.mon_kat_proxy.sensor.agg_rfe7_cam_states_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe3_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant5_bms_gps_timing_ok                         kat.mon_kat_proxy.sensor.agg_rfe7_cam_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe5_psu_ok                               kat.mon_kat_proxy.sensor.agg_ant5_bms_no_fire                               kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant1_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe5_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant5_bms_no_intrusion                          kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant1_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe6_no_laser_alarm                       kat.mon_kat_proxy.sensor.agg_ant5_bms_ntp_timing_ok                         kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant1_states_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe6_no_rf_alarm                          kat.mon_kat_proxy.sensor.agg_ant5_chiller_not_tripped                       kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant2_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_rfe6_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant5_chiller_system_ok                         kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant2_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_stow                                      kat.mon_kat_proxy.sensor.agg_ant5_chiller_temperature_ok                    kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant2_states_ok
+kat.mon_kat_proxy.sensor.agg_ant1_timing_ok                                 kat.mon_kat_proxy.sensor.agg_ant5_chiller_water_level_ok                    kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant3_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant1_wind_reporting_ok                         kat.mon_kat_proxy.sensor.agg_ant5_controller_on                             kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant3_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_acu_timing_ok                             kat.mon_kat_proxy.sensor.agg_ant5_cryo_15v_ok                               kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant3_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_antenna_comms_ok                          kat.mon_kat_proxy.sensor.agg_ant5_cryo_48V_ok                               kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant4_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_device_comms_ok                       kat.mon_kat_proxy.sensor.agg_ant5_cryo_cooling_fans_ok                      kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant4_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_gps_ntp_clock_adjust_ok               kat.mon_kat_proxy.sensor.agg_ant5_cryo_cryotel_cooling_ok                   kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant4_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_gps_num_sat_ok                        kat.mon_kat_proxy.sensor.agg_ant5_cryo_cryotel_on                           kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant5_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_gps_time_drift_ok                     kat.mon_kat_proxy.sensor.agg_ant5_cryo_device_connected                     kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant5_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_gps_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant5_cryo_device_synced                        kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant5_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_no_fire                               kat.mon_kat_proxy.sensor.agg_ant5_cryo_fuse_ok                              kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant6_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_no_intrusion                          kat.mon_kat_proxy.sensor.agg_ant5_cryo_ionpump_on                           kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant6_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_bms_ntp_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant5_cryo_ionpump_pressure_ok                  kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant6_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_chiller_not_tripped                       kat.mon_kat_proxy.sensor.agg_ant5_cryo_lna_temperature_ok                   kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant7_amp_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_chiller_system_ok                         kat.mon_kat_proxy.sensor.agg_ant5_cryo_no_water_leak                        kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant7_plate_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_chiller_temperature_ok                    kat.mon_kat_proxy.sensor.agg_ant5_cryo_omt_temperature_ok                   kat.mon_kat_proxy.sensor.agg_rfe7_downconverter_ant7_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_chiller_water_level_ok                    kat.mon_kat_proxy.sensor.agg_ant5_cryo_vacuum_not_broken                    kat.mon_kat_proxy.sensor.agg_rfe7_orx1_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_controller_on                             kat.mon_kat_proxy.sensor.agg_ant5_cryo_vacuum_ok                            kat.mon_kat_proxy.sensor.agg_rfe7_orx1_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_15v_ok                               kat.mon_kat_proxy.sensor.agg_ant5_enviro_comms_ok                           kat.mon_kat_proxy.sensor.agg_rfe7_orx2_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_48V_ok                               kat.mon_kat_proxy.sensor.agg_ant5_in_scan                                   kat.mon_kat_proxy.sensor.agg_rfe7_orx2_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_cooling_fans_ok                      kat.mon_kat_proxy.sensor.agg_ant5_lock                                      kat.mon_kat_proxy.sensor.agg_rfe7_orx3_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_cryotel_cooling_ok                   kat.mon_kat_proxy.sensor.agg_ant5_mode_not_error                            kat.mon_kat_proxy.sensor.agg_rfe7_orx3_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_cryotel_on                           kat.mon_kat_proxy.sensor.agg_ant5_no_hard_stops                             kat.mon_kat_proxy.sensor.agg_rfe7_osc_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_device_connected                     kat.mon_kat_proxy.sensor.agg_ant5_no_wind_stow                              kat.mon_kat_proxy.sensor.agg_rfe7_osc_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_device_synced                        kat.mon_kat_proxy.sensor.agg_ant5_not_estop                                 kat.mon_kat_proxy.sensor.agg_rfe7_other_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_fuse_ok                              kat.mon_kat_proxy.sensor.agg_ant5_pedestal_comms_ok                         kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant1_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_ionpump_on                           kat.mon_kat_proxy.sensor.agg_ant5_proxy_device_comms_ok                     kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant2_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_ionpump_pressure_ok                  kat.mon_kat_proxy.sensor.agg_ant5_rfe15_psu_ok                              kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant3_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_lna_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant5_rfe15_temp_ok                             kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant4_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_no_water_leak                        kat.mon_kat_proxy.sensor.agg_ant5_rfe3_psu_ok                               kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant5_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_omt_temperature_ok                   kat.mon_kat_proxy.sensor.agg_ant5_rfe3_temp_ok                              kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant6_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_vacuum_not_broken                    kat.mon_kat_proxy.sensor.agg_ant5_rfe5_psu_ok                               kat.mon_kat_proxy.sensor.agg_rfe7_output_power_ant7_not_limiting
+kat.mon_kat_proxy.sensor.agg_ant2_cryo_vacuum_ok                            kat.mon_kat_proxy.sensor.agg_ant5_rfe5_temp_ok                              kat.mon_kat_proxy.sensor.agg_rfe7_proxy_device_comms_ok
+kat.mon_kat_proxy.sensor.agg_ant2_enviro_comms_ok                           kat.mon_kat_proxy.sensor.agg_ant5_rfe6_no_laser_alarm                       kat.mon_kat_proxy.sensor.agg_rfe7_psu_states_ok
+kat.mon_kat_proxy.sensor.agg_ant2_in_scan                                   kat.mon_kat_proxy.sensor.agg_ant5_rfe6_no_rf_alarm                          kat.mon_kat_proxy.sensor.agg_rfe7_psu_temperatures_ok
+kat.mon_kat_proxy.sensor.agg_ant2_lock                                      kat.mon_kat_proxy.sensor.agg_ant5_rfe6_temp_ok                              kat.mon_kat_proxy.sensor.anc_connected
+kat.mon_kat_proxy.sensor.agg_ant2_mode_not_error                            kat.mon_kat_proxy.sensor.agg_ant5_stow                                      kat.mon_kat_proxy.sensor.ant1_connected
+kat.mon_kat_proxy.sensor.agg_ant2_no_hard_stops                             kat.mon_kat_proxy.sensor.agg_ant5_timing_ok                                 kat.mon_kat_proxy.sensor.ant2_connected
+kat.mon_kat_proxy.sensor.agg_ant2_no_wind_stow                              kat.mon_kat_proxy.sensor.agg_ant5_wind_reporting_ok                         kat.mon_kat_proxy.sensor.ant3_connected
+kat.mon_kat_proxy.sensor.agg_ant2_not_estop                                 kat.mon_kat_proxy.sensor.agg_ant6_acu_timing_ok                             kat.mon_kat_proxy.sensor.ant4_connected
+kat.mon_kat_proxy.sensor.agg_ant2_pedestal_comms_ok                         kat.mon_kat_proxy.sensor.agg_ant6_antenna_comms_ok                          kat.mon_kat_proxy.sensor.ant5_connected
+kat.mon_kat_proxy.sensor.agg_ant2_proxy_device_comms_ok                     kat.mon_kat_proxy.sensor.agg_ant6_bms_device_comms_ok                       kat.mon_kat_proxy.sensor.ant6_connected
+kat.mon_kat_proxy.sensor.agg_ant2_rfe15_psu_ok                              kat.mon_kat_proxy.sensor.agg_ant6_bms_gps_ntp_clock_adjust_ok               kat.mon_kat_proxy.sensor.ant7_connected
+kat.mon_kat_proxy.sensor.agg_ant2_rfe15_temp_ok                             kat.mon_kat_proxy.sensor.agg_ant6_bms_gps_num_sat_ok                        kat.mon_kat_proxy.sensor.api_version
+kat.mon_kat_proxy.sensor.agg_ant2_rfe3_psu_ok                               kat.mon_kat_proxy.sensor.agg_ant6_bms_gps_time_drift_ok                     kat.mon_kat_proxy.sensor.build_state
+kat.mon_kat_proxy.sensor.agg_ant2_rfe3_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant6_bms_gps_timing_ok                         kat.mon_kat_proxy.sensor.children
+kat.mon_kat_proxy.sensor.agg_ant2_rfe5_psu_ok                               kat.mon_kat_proxy.sensor.agg_ant6_bms_no_fire                               kat.mon_kat_proxy.sensor.comms_ok
+kat.mon_kat_proxy.sensor.agg_ant2_rfe5_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant6_bms_no_intrusion                          kat.mon_kat_proxy.sensor.dbe7_connected
+kat.mon_kat_proxy.sensor.agg_ant2_rfe6_no_laser_alarm                       kat.mon_kat_proxy.sensor.agg_ant6_bms_ntp_timing_ok                         kat.mon_kat_proxy.sensor.get
+kat.mon_kat_proxy.sensor.agg_ant2_rfe6_no_rf_alarm                          kat.mon_kat_proxy.sensor.agg_ant6_chiller_not_tripped                       kat.mon_kat_proxy.sensor.heartbeat
+kat.mon_kat_proxy.sensor.agg_ant2_rfe6_temp_ok                              kat.mon_kat_proxy.sensor.agg_ant6_chiller_system_ok                         kat.mon_kat_proxy.sensor.mon_kat_proxy_connected
+kat.mon_kat_proxy.sensor.agg_ant2_stow                                      kat.mon_kat_proxy.sensor.agg_ant6_chiller_temperature_ok                    kat.mon_kat_proxy.sensor.monitored_components
+kat.mon_kat_proxy.sensor.agg_ant2_timing_ok                                 kat.mon_kat_proxy.sensor.agg_ant6_chiller_water_level_ok                    kat.mon_kat_proxy.sensor.name
+kat.mon_kat_proxy.sensor.agg_ant2_wind_reporting_ok                         kat.mon_kat_proxy.sensor.agg_ant6_controller_on                             kat.mon_kat_proxy.sensor.nm_kat_proxy_connected
+kat.mon_kat_proxy.sensor.agg_ant3_acu_timing_ok                             kat.mon_kat_proxy.sensor.agg_ant6_cryo_15v_ok                               kat.mon_kat_proxy.sensor.pop
+kat.mon_kat_proxy.sensor.agg_ant3_antenna_comms_ok                          kat.mon_kat_proxy.sensor.agg_ant6_cryo_48V_ok                               kat.mon_kat_proxy.sensor.put
+kat.mon_kat_proxy.sensor.agg_ant3_bms_device_comms_ok                       kat.mon_kat_proxy.sensor.agg_ant6_cryo_cooling_fans_ok                      kat.mon_kat_proxy.sensor.rfe7_connected
+kat.mon_kat_proxy.sensor.agg_ant3_bms_gps_ntp_clock_adjust_ok               kat.mon_kat_proxy.sensor.agg_ant6_cryo_cryotel_cooling_ok                   kat.mon_kat_proxy.sensor.sensors_ok
+kat.mon_kat_proxy.sensor.agg_ant3_bms_gps_num_sat_ok                        kat.mon_kat_proxy.sensor.agg_ant6_cryo_cryotel_on                           kat.mon_kat_proxy.sensor.sorted_values
+kat.mon_kat_proxy.sensor.agg_ant3_bms_gps_time_drift_ok                     kat.mon_kat_proxy.sensor.agg_ant6_cryo_device_connected                     kat.mon_kat_proxy.sensor.storage_qrate_receive
+kat.mon_kat_proxy.sensor.agg_ant3_bms_gps_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant6_cryo_device_synced                        kat.mon_kat_proxy.sensor.storage_qrate_write
+kat.mon_kat_proxy.sensor.agg_ant3_bms_no_fire                               kat.mon_kat_proxy.sensor.agg_ant6_cryo_fuse_ok                              kat.mon_kat_proxy.sensor.storage_qsize
+kat.mon_kat_proxy.sensor.agg_ant3_bms_no_intrusion                          kat.mon_kat_proxy.sensor.agg_ant6_cryo_ionpump_on                           kat.mon_kat_proxy.sensor.storage_store_exists
+kat.mon_kat_proxy.sensor.agg_ant3_bms_ntp_timing_ok                         kat.mon_kat_proxy.sensor.agg_ant6_cryo_ionpump_pressure_ok                  kat.mon_kat_proxy.sensor.type
+kat.mon_kat_proxy.sensor.agg_ant3_chiller_not_tripped                       kat.mon_kat_proxy.sensor.agg_ant6_cryo_lna_temperature_ok
+kat.mon_kat_proxy.sensor.agg_ant3_chiller_system_ok                         kat.mon_kat_proxy.sensor.agg_ant6_cryo_no_water_leak
+
+
+Nodes [  kat.nodes (Nodes)  ]
+-----
+
+In (27 logs; 27 unique) [23]: kat.nodes.
+
+kat.nodes.idrac_kat_dc1_idrac (Dell iDRAC);C     kat.nodes.kat_monctl (Physical Node);P           kat.nodes.node_status                            kat.nodes.power_status
+kat.nodes.idrac_kat_monctl_idrac (Dell iDRAC);C  kat.nodes.kat_ops (Physical Node);P              kat.nodes.pdu_cc_pdu1 (APC PDU);Y                kat.nodes.webcam_webcam1
+kat.nodes.idrac_kat_proxy_idrac (Dell iDRAC);C   kat.nodes.kat_proxy (Physical Node);P            kat.nodes.pdu_cc_pdu2 (APC PDU);Y                kat.nodes.webcam_webcam2
+kat.nodes.kat_dc1 (Physical Node);P              kat.nodes.kat_timeplot (Physical Node);P         kat.nodes.pdu_cc_pdu3 (APC PDU);Y
+
+
+Catalogues [ kat.sources (Catalogue) ]
+----------
+
+In (27 logs; 27 unique) [51]: kat.sources.
+kat.sources.__class__         kat.sources.__format__        kat.sources.__len__           kat.sources.__repr__          kat.sources._antenna          kat.sources.closest_to        kat.sources.remove
+kat.sources.__contains__      kat.sources.__getattribute__  kat.sources.__module__        kat.sources.__setattr__       kat.sources._flux_freq_MHz    kat.sources.filter            kat.sources.save
+kat.sources.__delattr__       kat.sources.__getitem__       kat.sources.__ne__            kat.sources.__sizeof__        kat.sources.add               kat.sources.flux_freq_MHz     kat.sources.sort
+kat.sources.__dict__          kat.sources.__hash__          kat.sources.__new__           kat.sources.__str__           kat.sources.add_edb           kat.sources.iterfilter        kat.sources.targets
+kat.sources.__doc__           kat.sources.__init__          kat.sources.__reduce__        kat.sources.__subclasshook__  kat.sources.add_tle           kat.sources.iternames         kat.sources.visibility_list
+kat.sources.__eq__            kat.sources.__iter__          kat.sources.__reduce_ex__     kat.sources.__weakref__       kat.sources.antenna           kat.sources.lookup
