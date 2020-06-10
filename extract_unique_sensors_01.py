@@ -6,7 +6,9 @@ url = "http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.tx
 kat_sensor = "kat.sensor"
 
 def read_sensors(file_name, url):
-    """This function opens, reads and extracts the contents of the file_name.
+    """This function opens, reads and extracts the contents of the file_name.If the file_name
+    does not exist,with try will attempt to read the file_name from the url expecting it to be
+    there. If not, catch exception and perform a fallback.
 
     Params
     ------
@@ -34,7 +36,7 @@ def read_sensors(file_name, url):
         except Exception:                         
             print("Failed to retrieve sensor data")
     return sensors_data  
-
+ 
 def extract_all_sensors(sensors_data, sensor_name): 
     """Filters the sensors by extracting the name of sensors only.
 
@@ -58,7 +60,7 @@ def extract_all_sensors(sensors_data, sensor_name):
             for candidate_line in sensor_data.split():
                 candidate_lines.append(candidate_line)
     return candidate_lines
-    
+
 # Loop over candidate_lines and extract sensor names
 def splitting_list(sensors_list):
     """Splits the candidate_lines by dot and append that to sensors_list. It also removes the 
@@ -75,3 +77,4 @@ def splitting_list(sensors_list):
         sensor = sensor.strip("\n") 
         sensors_list.append(sensor)
     return sensors_list 
+
