@@ -62,19 +62,19 @@ def extract_all_sensors(sensors_data, sensor_name):
     return candidate_lines
 
 # Loop over candidate_lines and extract sensor names
-def splitting_list(sensors_list):
+def splitting_list():
     """Splits the candidate_lines by dot and append that to sensors_list. It also removes the 
     empty lines.
     """
     sensors_list = []
     candidate_lines = sensors_list
-    sensors_list = extract_all_sensors(sensors_data)
-    unique_sensors = splitting_list(sensors_list)
+    sensors_list = extract_all_sensors(sensors_data = read_sensors(file_name, url), sensor_name=kat_sensor)
     for sensor in candidate_lines:
     # Typical output from "sensor" variable:
     # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
         sensor = sensor.split('.')[-1]  
         sensor = sensor.strip("\n") 
         sensors_list.append(sensor)
-    return sensors_list 
+    return sensors_list
+print(sorted(splitting_list()))
 
