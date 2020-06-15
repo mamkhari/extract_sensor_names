@@ -3,7 +3,7 @@ from pathlib import Path
 
 file_name = "SensorList.txt"
 url = "http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.txt"                                                                          
-kat_sensor = "kat.sensor"
+kat_sensor = "kat.sensors"
 
 def read_sensors(file_name, url):
     """This function opens, reads and extracts the contents of the file_name.If the file_name
@@ -62,13 +62,13 @@ def extract_all_sensors(sensors_data, sensor_name):
     return candidate_lines
 
 # Loop over candidate_lines and extract sensor names
-def splitting_list(sensor_data = read_sensors(file_name, url)):
+def splitting_list(sensors_data = read_sensors(file_name, url)):
     """Splits the candidate_lines by dot and append that to sensors_list. It also removes the 
     empty lines.
     """
     sensors_list = []
     candidate_lines = sensors_list
-    sensors_list = extract_all_sensors(sensor_data, sensor_name=kat_sensor)
+    sensors_list = extract_all_sensors(sensors_data, sensor_name=kat_sensor)
     for sensor in candidate_lines:
     # Typical output from "sensor" variable:
     # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
@@ -76,5 +76,4 @@ def splitting_list(sensor_data = read_sensors(file_name, url)):
         sensor = sensor.strip("\n") 
         sensors_list.append(sensor)
     return sorted(sensors_list)
-print(splitting_list())
 
