@@ -3,7 +3,7 @@ from pathlib import Path
 
 file_name = "SensorList.txt"
 url = "http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.txt"                                                                          
-kat_sensor = "kat.sensor"
+kat_sensor = "kat.sensors"
 
 def read_sensors(file_name, url):
     """This function opens, reads and extracts the contents of the file_name.If the file_name
@@ -62,19 +62,28 @@ def extract_all_sensors(sensors_data, sensor_name):
     return candidate_lines
 
 # Loop over candidate_lines and extract sensor names
-def splitting_list(sensors_list):
-    """Splits the candidate_lines by dot and append that to sensors_list. It also removes the 
-    empty lines.
+def splitting_extracted_sensors(candidate_sensors, sensor_name):
+    """Splits candidate_sensors by dot, removes the empty lines and append results to the
+    sensors_list. 
+
+    Params
+    ------
+    candidate_sensors: list
+        list of extracted sensors
+    sensor_name: str
+        name of sensor
+    
+    Returns
+    -------
+    sensors_list: list
+        list of unique sensors
     """
     sensors_list = []
-    candidate_lines = sensors_list
-    sensors_list = extract_all_sensors(sensors_data)
-    unique_sensors = splitting_list(sensors_list)
-    for sensor in candidate_lines:
-    # Typical output from "sensor" variable:
-    # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
-        sensor = sensor.split('.')[-1]  
-        sensor = sensor.strip("\n") 
-        sensors_list.append(sensor)
-    return sensors_list 
+    for sensor in sorted(candidate_sensors):
+        # Typical output from "sensor" variable:
+        # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
+        sensor_ = sensor.split('.')[-1]  
+        sensor_ = sensor_.strip("\n") 
+        sensors_list.append(sensor_)
+    return sensors_list
 
