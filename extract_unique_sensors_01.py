@@ -62,7 +62,7 @@ def extract_all_sensors(sensors_data, sensor_name):
     return candidate_lines
 
 # Loop over candidate_lines and extract sensor names
-def splitting_list(sensors_data = read_sensors(file_name, url)):
+def splitting_list(candidate_sensors, sensor_name):
     """Splits the candidate_lines by dot and append that to sensors_list. It also removes the 
     empty lines.
     """
@@ -76,4 +76,3 @@ def splitting_list(sensors_data = read_sensors(file_name, url)):
         sensor = sensor.strip("\n") 
         sensors_list.append(sensor)
     return sorted(sensors_list)
-
