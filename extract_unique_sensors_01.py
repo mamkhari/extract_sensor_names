@@ -63,8 +63,8 @@ def extract_all_sensors(sensors_data, sensor_name):
 
 # Loop over candidate_lines and extract sensor names
 def splint_extracted_sensors(candidate_sensors, sensor_name):
-    """Splits the candidate_lines by dot and append results to the sensors_list. It also removes the 
-    empty lines.
+    """Splits candidate_sensors by dot, removes the empty lines and append results to the
+    sensors_list. 
 
     Params
     ------
