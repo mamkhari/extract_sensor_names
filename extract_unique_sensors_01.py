@@ -91,5 +91,5 @@ if __name__ == "__main__":
     sensors_data = read_sensors(file_name, url)
     extracted_sensors = extract_all_sensors(sensors_data, kat_sensor)
     unique_sensors_names = splitting_extracted_sensors(extracted_sensors, kat_sensor)
-print(unique_sensors_names)
+    print(unique_sensors_names)
    
