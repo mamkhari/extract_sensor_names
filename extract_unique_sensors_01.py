@@ -87,3 +87,9 @@ def splitting_extracted_sensors(candidate_sensors, sensor_name):
         sensors_list.append(sensor_)
     return sensors_list
 
+if __name__ == "__main__":
+    sensors_data = read_sensors(file_name, url)
+    extracted_sensors = extract_all_sensors(sensors_data, kat_sensor)
+    unique_sensors_names = splitting_extracted_sensors(extracted_sensors, kat_sensor)
+    
+   
