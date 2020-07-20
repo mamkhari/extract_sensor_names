@@ -19,6 +19,8 @@
 - [x] Refactor script and convert logic to `functions`. Done [PR#6](https://github.com/mamkhari/extract_sensor_names/pull/6/files) and [PR#7](https://github.com/mamkhari/extract_sensor_names/pull/7/files)
 - [x] Modularize the script i.e. `if __name__ == '__main__'`: Done [PR#9](https://github.com/mamkhari/extract_sensor_names/pull/9/files)
 - [ ] Parse arguments from CLI (kat-sensors, filename etc.)
+  
+  Expected outcome: `python extract_unique_sensors.py --file_name blabla.txt --url www.google.com --kat_sensor kat.sensors`
 - [ ] Replace `print` statements with `logger` from `logging` module
 - [ ] Add tests use `unittest` module.
 - [ ] Convert functions to class, for example `class ExtractSensor: `.
