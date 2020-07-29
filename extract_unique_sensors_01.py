@@ -3,7 +3,7 @@ from urllib.request import urlopen
 from pathlib import Path
 
 parser = argparse.ArgumentParser(description='Extract unique sensors')
-parser.add_argument('--file_name', help='Actual name of the file')
+parser.add_argument('--file_name', help='File to extract unique sensors from.')
 parser.add_argument('--url', help='Location of SensorList.txt')
 parser.add_argument('--kat_sensor', help='Name of unique sensor')
 
