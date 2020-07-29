@@ -4,7 +4,7 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser(description='Extract unique sensors')
 parser.add_argument('--file_name', help='Actual name of the file')
-parser.add_argument('--url', help='Location of text file')
+parser.add_argument('--url', help='Location of SensorList.txt')
 parser.add_argument('--kat_sensor', help='Name of unique sensor')
 
 args = parser.parse_args()
@@ -96,8 +96,8 @@ def splitting_extracted_sensors(candidate_sensors, sensor_name):
     return sensors_list
 
 if __name__ == "__main__":
-    sensors_data = read_sensors(file_name, url)
-    extracted_sensors = extract_all_sensors(sensors_data, kat_sensor)
-    unique_sensors_names = splitting_extracted_sensors(extracted_sensors, kat_sensor)
-    print(args)
+    sensors_data = read_sensors(args.file_name, args.url)
+    extracted_sensors = extract_all_sensors(sensors_data, args.kat_sensor)
+    unique_sensors_names = splitting_extracted_sensors(extracted_sensors, args.kat_sensor)
+    print(f'{args.file_name}, {args.url}, {args.kat_sensor}')
     print(unique_sensors_names)
