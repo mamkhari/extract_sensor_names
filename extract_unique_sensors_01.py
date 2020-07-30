@@ -4,14 +4,11 @@ from pathlib import Path
 
 parser = argparse.ArgumentParser(description='Extract unique sensors')
 parser.add_argument('--file_name', help='File to extract unique sensors from.')
-parser.add_argument('--url', help='Location of SensorList.txt')
+parser.add_argument('--url', help='A reference to SensorList.txt that specifies its ' 
+                    'location on a computer network.') 
 parser.add_argument('--kat_sensor', help='Name of unique sensor')
 
 args = parser.parse_args()
-
-file_name = "SensorList.txt"
-url = "http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.txt"                                                                          
-kat_sensor = "kat.sensors"
 
 def read_sensors(file_name, url):
     """This function opens, reads and extracts the contents of the file_name.If the file_name
