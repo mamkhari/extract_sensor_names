@@ -1,9 +1,23 @@
+import argparse
 from urllib.request import urlopen
 from pathlib import Path
 
-file_name = "SensorList.txt"
-url = "http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.txt"                                                                          
-kat_sensor = "kat.sensors"
+def create_parser():
+    """Creates a parser for command line arguments.
+
+    Returns
+    -------
+    args: Namespace
+        Namespace containing the arguments to the command.
+    """
+
+    parser = argparse.ArgumentParser(description='Extract unique sensors')
+    parser.add_argument('--file_name', help='File to extract unique sensors from.')
+    parser.add_argument('--url', help='A reference to SensorList.txt that specifies its ' 
+                        'location on a computer network.') 
+    parser.add_argument('--kat_sensor', required=True, help='Name of unique sensor')
+    args = parser.parse_args()
+    return args
 
 def read_sensors(file_name, url):
     """This function opens, reads and extracts the contents of the file_name.If the file_name
@@ -87,8 +101,12 @@ def splitting_extracted_sensors(candidate_sensors, sensor_name):
         sensors_list.append(sensor_)
     return sensors_list
 
+def main(args):
+    sensors_data = read_sensors(args.file_name, args.url)
+    extracted_sensors = extract_all_sensors(sensors_data, args.kat_sensor)
+    unique_sensors_names = splitting_extracted_sensors(extracted_sensors, args.kat_sensor)
+    return unique_sensors_names
+
 if __name__ == "__main__":
-    sensors_data = read_sensors(file_name, url)
-    extracted_sensors = extract_all_sensors(sensors_data, kat_sensor)
-    unique_sensors_names = splitting_extracted_sensors(extracted_sensors, kat_sensor)
-    print(unique_sensors_names)
+    args = create_parser()
+    main(args)
