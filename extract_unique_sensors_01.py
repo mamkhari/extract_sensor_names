@@ -2,13 +2,22 @@ import argparse
 from urllib.request import urlopen
 from pathlib import Path
 
-parser = argparse.ArgumentParser(description='Extract unique sensors')
-parser.add_argument('--file_name', help='File to extract unique sensors from.')
-parser.add_argument('--url', help='A reference to SensorList.txt that specifies its ' 
-                    'location on a computer network.') 
-parser.add_argument('--kat_sensor', help='Name of unique sensor')
+def create_parser():
+    """Creates a parser for command line arguments.
 
-args = parser.parse_args()
+    Returns
+    -------
+    args: Namespace
+        Namespace containing the arguments to the command.
+    """
+
+    parser = argparse.ArgumentParser(description='Extract unique sensors')
+    parser.add_argument('--file_name', help='File to extract unique sensors from.')
+    parser.add_argument('--url', help='A reference to SensorList.txt that specifies its ' 
+                        'location on a computer network.') 
+    parser.add_argument('--kat_sensor', required=True, help='Name of unique sensor')
+    args = parser.parse_args()
+    return args
 
 def read_sensors(file_name, url):
     """This function opens, reads and extracts the contents of the file_name.If the file_name
@@ -92,9 +101,12 @@ def splitting_extracted_sensors(candidate_sensors, sensor_name):
         sensors_list.append(sensor_)
     return sensors_list
 
-if __name__ == "__main__":
+def main(args):
     sensors_data = read_sensors(args.file_name, args.url)
     extracted_sensors = extract_all_sensors(sensors_data, args.kat_sensor)
     unique_sensors_names = splitting_extracted_sensors(extracted_sensors, args.kat_sensor)
-    print(f'{args.file_name}, {args.url}, {args.kat_sensor}')
-    print(unique_sensors_names)
+    return unique_sensors_names
+
+if __name__ == "__main__":
+    args = create_parser()
+    main(args)
