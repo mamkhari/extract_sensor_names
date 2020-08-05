@@ -23,6 +23,8 @@
   Expected outcome: `python extract_unique_sensors.py --file_name blabla.txt --url www.google.com --kat_sensor kat.sensors`
 - [ ] Replace `print` statements with `logger` from `logging` module
 - [ ] Add tests use `unittest` module.
+- [ ] Refactor code, read this [blogpost](https://dev.to/renegadecoder94/8-coolest-python-programming-language-features-58i9) for ideas
+- [ ] Update tests to handle refactored code.
 - [ ] Convert functions to class, for example `class ExtractSensor: `.
 - [ ] Convert script to a Python package.
 - [ ] Add CI/CD either GitHub Actions, Travis CI or Circle CI.
