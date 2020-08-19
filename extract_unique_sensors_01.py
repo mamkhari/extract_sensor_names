@@ -1,4 +1,5 @@
 import argparse
+import logging
 from urllib.request import urlopen
 from pathlib import Path
 
@@ -17,6 +18,7 @@ def create_parser():
                         'location on a computer network.') 
     parser.add_argument('--kat_sensor', required=True, help='Name of unique sensor')
     args = parser.parse_args()
+    logging.basicConfig(format='%(message)s', level=logging.ERROR)
     return args
 
 def read_sensors(file_name, url):
@@ -48,7 +50,8 @@ def read_sensors(file_name, url):
             sensors_url = urlopen(url)
             sensors_data = sensors_url.readlines()
         except Exception:                         
-            print("Failed to retrieve sensor data")
+            logger.error(
+                "Failed to retrieve sensor data. Url or filename does not exist.", exc_info=True)
     return sensors_data  
  
 def extract_all_sensors(sensors_data, sensor_name): 
