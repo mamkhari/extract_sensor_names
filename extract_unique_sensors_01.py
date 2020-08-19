@@ -1,8 +1,10 @@
+import sys
 import argparse
 import logging
+
 from urllib.request import urlopen
 from pathlib import Path
-
+from logging import critical, error, info, warning, debug
 def create_parser():
     """Creates a parser for command line arguments.
 
@@ -17,8 +19,12 @@ def create_parser():
     parser.add_argument('--url', help='A reference to SensorList.txt that specifies its ' 
                         'location on a computer network.') 
     parser.add_argument('--kat_sensor', required=True, help='Name of unique sensor')
+    parser.add_argument('-v', metavar='verbosity', type=int, default=1,
+    help='Verbosity of logging: 0 -critical, 1- error, 2 -warning, 3 -info, 4 -debug')
+    
     args = parser.parse_args()
-    logging.basicConfig(format='%(message)s', level=logging.ERROR)
+    verbose = {0: logging.CRITICAL, 1: logging.ERROR, 2: logging.WARNING, 3: logging.INFO, 4: logging.DEBUG}
+    logging.basicConfig(format='%(message)s', level=verbose[args.v], stream=sys.stdout)
     return args
 
 def read_sensors(file_name, url):
