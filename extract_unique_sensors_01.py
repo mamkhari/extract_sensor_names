@@ -53,8 +53,8 @@ def read_sensors(file_name, url):
             sensors_url = urlopen(url)
             sensors_data = sensors_url.readlines()
         except Exception:                         
-            logging.error(
-                "Failed to retrieve sensor data. Url or filename does not exist.", exc_info=True)
+            logging.exception(
+                "Failed to retrieve sensor data. Url or filename does not exist.")
     return sensors_data  
  
 def extract_all_sensors(sensors_data, sensor_name): 
