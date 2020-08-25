@@ -5,6 +5,7 @@ import logging
 from urllib.request import urlopen
 from pathlib import Path
 
+
 def create_parser():
     """Creates a parser for command line arguments.
 
@@ -16,48 +17,55 @@ def create_parser():
 
     parser = argparse.ArgumentParser(description='Extract unique sensors')
     parser.add_argument('--file_name', help='File to extract unique sensors from.')
-    parser.add_argument('--url', help='A reference to SensorList.txt that specifies its ' 
-                        'location on a computer network.') 
+    parser.add_argument('--url', help='A reference to SensorList.txt that specifies its'
+                        'location on a computer network.')
     parser.add_argument('--kat_sensor', required=True, help='Name of unique sensor')
-    
+    parser.add_argument('-v', metavar='verbosity', type=int, default=2, help='Logging'
+                        'verbosity: 0 -critical, 1- error, 2 -warning, 3 -info, 4 -debug')
+
     args = parser.parse_args()
-    logging.basicConfig(format='%(message)s', level=logging.ERROR, stream=sys.stdout)
     return args
+
 
 def read_sensors(file_name, url):
     """This function opens, reads and extracts the contents of the file_name.If the file_name
-    does not exist,with try will attempt to read the file_name from the url expecting it to be
-    there. If not, catch exception and perform a fallback.
+    does not exist,with try will attempt to read the file_name from the url expecting it
+    to be there. If not, catch exception and perform a fallback.
 
     Params
     ------
-    file_name: str        
+    file_name: str
         The actual name of the file.
-    url: str                       
+    url: url
         The location of SensorList.txt on the internet.
-                                                    
+
     Returns
     -------
     sensors_data: list
-        list of sensors. 
-    """                 
+        list of sensors.
+    """
     assert isinstance(file_name, str), "Expected a string."
-    assert isinstance(url, str), "Expected a string."                                          
+    assert isinstance(url, str), "Expected a string."
     sensors_data = []
     if file_name and Path(file_name).exists():
-        file_path = Path(file_name)           
+        file_path = Path(file_name)
         with open(file_path) as lines:
             sensors_data = lines.readlines()
-    elif url:                               
-        try: 
+    elif url:
+        try:
             sensors_url = urlopen(url)
             sensors_data = sensors_url.readlines()
-        except:                         
+            logging.debug("Using the url.")
+            logging.debug("Using the filename")
+
+        except Exception:
             logging.exception(
-                "Failed to retrieve sensor data. Url or filename does not exist.")       
-    return sensors_data  
- 
-def extract_all_sensors(sensors_data, sensor_name): 
+                "Failed to retrieve sensor data. Unkown url type or filename.")
+
+    return sensors_data
+
+
+def extract_all_sensors(sensors_data, sensor_name):
     """Filters the sensors by extracting the name of sensors only.
 
     Params
@@ -81,10 +89,11 @@ def extract_all_sensors(sensors_data, sensor_name):
                 candidate_lines.append(candidate_line)
     return candidate_lines
 
+
 # Loop over candidate_lines and extract sensor names
 def splitting_extracted_sensors(candidate_sensors, sensor_name):
     """Splits candidate_sensors by dot, removes the empty lines and append results to the
-    sensors_list. 
+    sensors_list.
 
     Params
     ------
@@ -92,7 +101,7 @@ def splitting_extracted_sensors(candidate_sensors, sensor_name):
         list of extracted sensors
     sensor_name: str
         name of sensor
-    
+
     Returns
     -------
     sensors_list: list
@@ -101,17 +110,24 @@ def splitting_extracted_sensors(candidate_sensors, sensor_name):
     sensors_list = []
     for sensor in sorted(candidate_sensors):
         # Typical output from "sensor" variable:
-        # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version   kat.sensors.anc_ganglia_kat_monctl_system_os_name
-        sensor_ = sensor.split('.')[-1]  
-        sensor_ = sensor_.strip("\n") 
+        # kat.sensors.anc_api_version   kat.sensors.anc_ganglia_api_version
+        # kat.sensors.anc_ganglia_kat_monctl_system_os_name
+        sensor_ = sensor.split('.')[-1]
+        sensor_ = sensor_.strip("\n")
         sensors_list.append(sensor_)
     return sensors_list
 
+
 def main(args):
+    verbose = {
+        0: logging.CRITICAL, 1: logging.ERROR, 2: logging.WARNING, 3: logging.INFO,
+        4: logging.DEBUG}
+    logging.basicConfig(format='%(message)s', level=verbose[args.v], stream=sys.stdout)
     sensors_data = read_sensors(args.file_name, args.url)
     extracted_sensors = extract_all_sensors(sensors_data, args.kat_sensor)
     unique_sensors_names = splitting_extracted_sensors(extracted_sensors, args.kat_sensor)
     return unique_sensors_names
+
 
 if __name__ == "__main__":
     args = create_parser()
