@@ -62,7 +62,8 @@ def read_sensors(file_name, url):
 
         except Exception:
             logging.exception(
-                "Failed to retrieve sensor data. Unkown url type or filename.")
+                "Failed to retrieve sensor data. Unknown URL type or filename."
+            )
 
     return sensors_data
 
