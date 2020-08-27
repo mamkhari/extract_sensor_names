@@ -59,7 +59,7 @@ def read_sensors(file_name, url):
         try:
             sensors_url = urlopen(url)
             sensors_data = sensors_url.readlines()
-            logging.debug("Accessing sensor data from the url.")
+            logging.debug("Accessing sensor data from the url:  %r.", url")
 
         except Exception:
             logging.exception(
