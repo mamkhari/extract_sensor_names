@@ -52,7 +52,7 @@ def read_sensors(file_name, url):
     sensors_data = []
     if file_name and Path(file_name).exists():
         file_path = Path(file_name)
-        logging.debug("Accesing sensor data from the file_name.")
+        logging.debug("Accesing sensor data from the file_name: %r.", file_name)
         with open(file_path) as lines:
             sensors_data = lines.readlines()
     elif url:
