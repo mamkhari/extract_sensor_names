@@ -19,7 +19,8 @@ def create_parser():
     parser.add_argument('--file_name', help='File to extract unique sensors from.')
     parser.add_argument(
         '--url',
-        help='A reference to SensorList.txt that specifies its location on a computer network.'
+        help='A reference to SensorList.txt that specifies its location on a computer'
+        'network.'
     )
     parser.add_argument('--kat_sensor', required=True, help='Name of unique sensor')
     parser.add_argument('-v', metavar='verbosity', type=int, default=2, help='Logging'
@@ -38,7 +39,7 @@ def read_sensors(file_name, url):
     ------
     file_name: str
         The actual name of the file.
-    url: url
+    url: str
         The location of SensorList.txt on the internet.
 
     Returns
@@ -51,14 +52,14 @@ def read_sensors(file_name, url):
     sensors_data = []
     if file_name and Path(file_name).exists():
         file_path = Path(file_name)
+        logging.debug("Accesing sensor data from the file_name.")
         with open(file_path) as lines:
             sensors_data = lines.readlines()
     elif url:
         try:
             sensors_url = urlopen(url)
             sensors_data = sensors_url.readlines()
-            logging.debug("Using the url.")
-            logging.debug("Using the filename")
+            logging.debug("Accessing sensor data from the url.")
 
         except Exception:
             logging.exception(
