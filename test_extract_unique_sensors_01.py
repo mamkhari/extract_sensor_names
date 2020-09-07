@@ -1,16 +1,29 @@
 import unittest
-import extract_unique_sensors_01
+from extract_unique_sensors_01 import extract_all_sensors
+from extract_unique_sensors_01 import splitting_extracted_sensors
 
 
 class TestExtractSensors(unittest.TestCase):
     """Test class for function test_read_sensors."""
-    def test_read_sensors(self):
-        """Test whether file_path is a regular file, a directory and that sensors_data
-        is not empty."""
-        file_name = 'SensorList.txt'
-        url = 'http://monctl.devm.camlab.kat.ac.za/kat/doc/manuals/sensors/SensorList.txt'
-        sensors_data = extract_unique_sensors_01.read_sensors(file_name, url)
-        file_path = extract_unique_sensors_01.Path(file_name)
-        self.assertTrue(file_path.is_file())
-        self.assertTrue(file_path.parent.is_dir())
-        self.assertIsNotNone(sensors_data)
+
+    def test_extract_all_sensors(self):
+        sensor_name = "kat"
+        sensors_data = [
+            "kat.sensor.name_1", "not.kat.sensor.name_1", "kat.sensor.name_2",
+            "kat.sensor.name_3", "ket.name.sensor_2"
+        ]
+        expected_candidate_lines = ['kat.sensor.name_1', 'kat.sensor.name_2',
+                                    'kat.sensor.name_3']
+        self.assertIsInstance(sensor_name, str)
+        self.assertIsInstance(sensors_data, list)
+        candidate_line = extract_all_sensors(sensors_data, sensor_name)
+        self.assertListEqual(candidate_line, expected_candidate_lines)
+
+    def test_splitting_extracted_sensors(self):
+        sensor_name = "kat"
+        candidate_sensors = [
+            'kat.sensor.name_1', 'kat.sensor.name_2', 'kat.sensor.name_3'
+        ]
+        expected_candidate_sensors = ['name_1', 'name_2', 'name_3']
+        sensor = splitting_extracted_sensors(candidate_sensors, sensor_name)
+        self.assertListEqual(sensor, expected_candidate_sensors)
