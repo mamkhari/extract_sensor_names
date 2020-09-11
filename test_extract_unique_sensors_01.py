@@ -1,4 +1,5 @@
 import unittest
+import logging
 from mock import MagicMock
 from mock import patch
 from extract_unique_sensors_01 import extract_all_sensors
@@ -19,19 +20,20 @@ class TestExtractSensors(unittest.TestCase):
             mock_request.return_value.status_code = 404
             self.assertTrue(non_existing_url)
 
-        file_name = "katlego"
+        file_name = 1
         mock_path = MagicMock()
         mock_path.Path(file_name).exists().return_value = True
         self.assertTrue(file_name)
-        self.assertIsInstance(file_name, str)
-        self.assertIsInstance(url, str)
+        with self.assertRaises(AssertionError):
+            self.assertIsInstance(file_name, str)
+            self.assertIsInstance(url, str)
 
-        def Assertlogs(self):
-            with self.Assertlogs('url', 'file_name', level='DEBUG') as cm:
-                logging.debug("Unknown url: %r.", url)
-                logging.debug("Uknown file_name: %r.", file_name)
+        def my_logs(self):
+            with self.assertLogs('file_name, url', level='DEBUG') as cm:
+                logging.debug("Uknown file_name")
+                logging.debug("Unknown url")
                 self.assertEqual(
-                    cm.output, ['BEBUG:url:Uknownn url', 'BEBUG:url:Uknownn url'])
+                cm.output, ['BEBUG:file_name:Unknownfile_name', 'url:Unknown url'])
 
     def test_extract_all_sensors(self):
         sensor_name = "kat"
@@ -41,10 +43,11 @@ class TestExtractSensors(unittest.TestCase):
         ]
         expected_candidate_lines = ['kat.sensor.name_1', 'kat.sensor.name_2',
                                     'kat.sensor.name_3']
-        self.assertIsInstance(sensor_name, str)
-        self.assertIsInstance(sensors_data, list)
         candidate_line = extract_all_sensors(sensors_data, sensor_name)
         self.assertListEqual(candidate_line, expected_candidate_lines)
+        with self.assertRaises(AssertionError):
+            self.assertIsInstance(sensor_name, int)
+            self.assertIsInstance(sensors_data, list)
 
     def test_splitting_extracted_sensors(self):
         sensor_name = "kat"
