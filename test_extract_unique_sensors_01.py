@@ -28,12 +28,16 @@ class TestExtractSensors(unittest.TestCase):
             self.assertIsInstance(file_name, str)
             self.assertIsInstance(url, str)
 
-        def my_logs(self):
-            with self.assertLogs('file_name, url', level='DEBUG') as cm:
-                logging.debug("Uknown file_name")
-                logging.debug("Unknown url")
-                self.assertEqual(
-                cm.output, ['BEBUG:file_name:Unknownfile_name', 'url:Unknown url'])
+        with self.assertLogs('test_logger', level='DEBUG') as cm:
+            logging.getLogger('test_logger.file_name').debug("file_name exist")
+            logging.getLogger('test_logger.url').debug("URL exist")
+            logging.getLogger('test_logger').error("file_name or url type does exist")
+            self.assertEqual(
+            cm.output, [
+                'DEBUG:test_logger.file_name:file_name exist',
+                'DEBUG:test_logger.url:URL exist',
+                'ERROR:test_logger:file_name or url type does exist']
+            )
 
     def test_extract_all_sensors(self):
         sensor_name = "kat"
