@@ -1,9 +1,8 @@
-import sys
 import argparse
 import logging
-
-from urllib.request import urlopen
+import sys
 from pathlib import Path
+from urllib.request import urlopen
 
 
 def create_parser():

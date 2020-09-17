@@ -1,11 +1,12 @@
-import unittest
 import logging
+import unittest
 from pathlib import Path
-from mock import MagicMock, Mock, patch, mock_open
 from urllib.request import urlopen
-from extract_unique_sensors_01 import read_sensors
-from extract_unique_sensors_01 import extract_all_sensors
-from extract_unique_sensors_01 import splitting_extracted_sensors
+
+from mock import MagicMock, Mock, mock_open, patch
+
+from extract_unique_sensors_01 import (extract_all_sensors, read_sensors,
+                                       splitting_extracted_sensors)
 
 
 class TestExtractSensors(unittest.TestCase):
