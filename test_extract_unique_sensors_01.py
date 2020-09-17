@@ -10,7 +10,7 @@ from extract_unique_sensors_01 import (extract_all_sensors, read_sensors,
 
 
 class TestExtractSensors(unittest.TestCase):
-    """Test class for function test_read_sensors."""
+    """Test class for extract_unique_sensors."""
 
     def test_read_sensors_from_file_success(self):
         file_name = "some_non_existant_file.txt"
