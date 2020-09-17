@@ -2,6 +2,8 @@ import unittest
 import logging
 from mock import MagicMock
 from mock import patch
+from urllib.request import urlopen
+from extract_unique_sensors_01 import read_sensors
 from extract_unique_sensors_01 import extract_all_sensors
 from extract_unique_sensors_01 import splitting_extracted_sensors
 
@@ -10,14 +12,14 @@ class TestExtractSensors(unittest.TestCase):
     """Test class for function test_read_sensors."""
 
     def test_read_sensors(self):
-        with patch('requests.get') as mock_request:
+        with patch('urllib.request.urlopen') as mock_urlopen:
             url = "http://lebogang.com"
-            mock_request.return_value.status_code = 200
+            mock_urlopen.return_value.status_code = 200
             self.assertTrue(url)
 
-        with patch('requests.get') as mock_request:
+        with patch('urllib.request.urlopen') as mock_urlopen:
             non_existing_url = "http://google.com/fakeurl"
-            mock_request.return_value.status_code = 404
+            mock_urlopen.return_value.status_code = 404
             self.assertTrue(non_existing_url)
 
         file_name = 1
