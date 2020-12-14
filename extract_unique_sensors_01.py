@@ -85,11 +85,10 @@ def extract_all_sensors(sensors_data, sensor_name):
     """
     assert isinstance(sensor_name, str), "Expected a string."
     assert isinstance(sensors_data, list), "Expected a list."
-    candidate_lines = []
-    for sensor_data in sensors_data:
-        if sensor_data.startswith(sensor_name):
-            for candidate_line in sensor_data.split():
-                candidate_lines.append(candidate_line)
+    candidate_lines = [
+        candidate_line for sensor_data in sensors_data if sensor_data.startswith(sensor_name)
+        for candidate_line in sensor_data.split()
+    ]
     return candidate_lines
 
 
